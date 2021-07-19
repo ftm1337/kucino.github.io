@@ -70,21 +70,19 @@ Available Balance: <span id="usba">?</span> KCS
 <br>
 <div class="mainstages mainstage" align="center">
 	<div class="mainstage" style="" align="center">
-		<h3>2-player Jackpot</h3>
+		<h2>0.11 KCS</h2>
+		<h3>2-player, Jackpot</h3>
 		<br>
 		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
-			<span></span><span>Reward</span>
-			<span></span><span>0.11 KCS</span><span></span>
 			<span></span><span>Winning Odds</span>
 			<span></span><span>1/2</span><span></span>
-			<span></span><span>Seats Vacant</span>
-			<span></span><span id="sv02">? / 2</span><span></span>
 			<span></span><span>Stake</span>
 			<span></span><span>0.0555 KCS</span><span></span>
-			<span></span><span>House Fee</span>
-			<span></span><span>10%</span><span></span>
 		</div>
-		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button>
+		<br>
+		<span></span><span>Status:</span>
+		<span></span><span id="sv02">Scanning ...</span><span></span>
+		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button><br><br>
 	</div>
 </div>
 <div class="mainstage" align="center" style="display:none">
@@ -100,7 +98,7 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <li>Spend only what you're willing to lose.</li>
 <li>A winner is drawn after 2 entries.</li>
 <li>Each jackpot entry costs 0.0555 KCS.</li>
-<li>There is NO house edge but a 10% tax.</li>
+<li>There's NO house edge but a <b>10% tax.</b></li>
 <li>Sam is not responsible if you get rekt.</li>
 <li>There can be only 2 entries each round.</li>
 <li>Each 3rd entry will begin a new round.</li>
@@ -145,9 +143,9 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <br>
 <br>
 <div align="center" class="advert">
-<pre>Join Our Social Media community!</pre>
+<pre>Join Our community!</pre>
 <a href="https://t.me/Kucino" target="_blank"><button>Telegram</button></a>
-<a href="https://discord.gg/QpyfMarNrV" target="_blank"><button>Discord</button></a>
+<a href="https://discord.gg/QpyfMarNrV" target="_blank"><button>Discord</button></a><br>
 <a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
 </div>
 <script src="web3.min.js"></script>
@@ -158,6 +156,7 @@ window.addEventListener('load',async function()
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	//lb();lb02();arf();
+	jpsv_s_f();svf();
 }, false);
 uac="";
 async function cw()
@@ -270,11 +269,19 @@ function paintlb02(d)
 		B.append(R);
 	}
 }
-function svf(){	var svf_i = setInterval(function()
+function jpsv_s_f()
+{
+	jp2=new web3.eth.Contract(abjp,JP02);
+	$("sv02").innerHTML="Scanning ...";
+	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>"});
+}
+function svf()
+{	var svf_i = setInterval(
+	function()
 	{
-		jp2=new web3.eth.Contract(abjp,JP02);
-		jp2.methods.cu().call((e,r)=>{$("sv02").innerText=r})
-	}, 30000);}
+		jpsv_s_f();
+	}, 30000);
+}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
@@ -311,5 +318,10 @@ abjp=[
 		"type": "function"
 	}
 ];
+function jpsv_s(n)
+{
+	n=Number(n);
+	return(n==0?"Start a new Game!":"Awaiting final bet!");
+}
 </script>
 </html>
