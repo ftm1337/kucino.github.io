@@ -155,7 +155,7 @@ window.addEventListener('load',async function()
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	//lb();lb02();arf();
-	jpsv_s_f();svf();
+	jpsv_s_f();gub();svf();
 }, false);
 uac="";
 async function cw()
@@ -279,15 +279,17 @@ function svf()
 	function()
 	{
 		jpsv_s_f();
+		gub();
 	}, 30000);
 }
+function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
+			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
 		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
 		lb();lb02();//seats();seats02();
-		if(window.ethereum&&window.ethereum.selectedAddress!=null)
-			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}
+		//gub();
 	}, 30000);}
 abjp=[
 	{
