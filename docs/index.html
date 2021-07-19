@@ -1,0 +1,284 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>🎰 KUCINO : KCC.guru | The GURU Network</title>
+<meta name="description" content="Kucino is the first Casino on the Kucoin Community Chain | Powered by The GURU Network">
+<meta name="keywords" content="Dice, Coin Flip, Coin Toss,Lotto, jackpot, betting, gambling, on-chain, blockchain, Kucoin Community Chain, KCC, KCS, Decentralized Finance, KUCINO">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+<style>
+
+*{color:#e3e9f2;overflow-wrap:break-word;}
+a{text-decoration-line:none;padding:0 2px}
+html{background: radial-gradient(at top, #174, black);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+img{border-radius: 50%}
+input,button{border-radius:25px;background:black;text-align:center}
+button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+pre{overflow-x:auto;max-width:80%}
+#votingmvg{background:#040b22;border-radius:20px;border: #aaa solid 1px}
+.topbar{display:grid;grid-template-columns: auto;}
+#mvg pre{margin: 0 0 0 0;}
+#mvg hr{border: 0px dashed;width: 50%}
+#mvg div{background: #000013;margin: auto;border-radius: 15px;border:dashed 1px;border-top: none }
+	#mvg{width: 70vw}
+.mainpanels{display:grid;grid-template-columns:auto}
+.olsa{display:grid;grid-template-columns:auto auto 1%;}
+.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
+.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));padding:15px;
+margin:5%;border-radius: 15px;border:aqua 2px solid}
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:#0f7 2px solid;}
+.c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
+.mainstage button{margin-bottom: 5px}
+.advert
+{
+background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));padding:15px;
+}
+#errors{font-size:0.67em}
+.farmcontrols{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;width:140px;margin:5px}
+.fardet span:nth-of-type(5n+2){text-align: left}
+.fardet span:nth-of-type(5n+4){text-align: right}
+td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
+tr:hover{background: darkslategray}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:50% 50%}
+	.mainstages{grid-template-columns:50% 50%}
+	#mvg{width: 70%;}
+	.hhr{width: 555px}
+}
+</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">KCC.guru</b></a><br><br>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
+		<a href="jp.html">Jackpot on KCC</a>
+		<a href="https://ftm.guru/degam.html">Fantom Version</a>
+	</div>
+</div>
+<hr class="hhr">
+<br>
+<br>
+
+<div align="center">
+<h1>Welcome to KUCINO</h1>
+<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
+<br>
+Available Balance: <span id="usba">?</span> KCS
+<br>
+<br>
+<br>
+</div>
+<br>
+<div class="mainstages mainstage" align="center">
+	<div class="mainstage" style="" align="center">
+		<h3>2-player Jackpot</h3>
+		<br>
+		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<span></span><span>Stake</span>
+			<span></span><span>0.0555 KCS</span><span></span>
+			<span></span><span>Reward</span>
+			<span></span><span>0.11 KCS</span><span></span>
+			<span></span><span>House Fee</span>
+			<span></span><span>10%</span><span></span>
+			<span></span><span>Winning Odds</span>
+			<span></span><span>1/2</span><span></span><!--
+			<span></span><span>Seats Vacant</span>
+			<span></span><span>?</span><span></span>-->
+		</div>
+		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button>
+	</div>
+</div>
+<div class="mainstage" align="center" style="display:none">
+<h4>Manual Betting</h4>
+Micro-jackpot<br>
+Simply send 0.1337 FTM to 0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124 with <b>"Gas Limit"</b> of 100000.<br><br>
+Mini-jackpot<br>
+Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
+</div>
+<div class="mainstage" align="center" style="font-size:0.8em">
+<h3>Rules</h3>
+<li>This is not an audited Contract.</li>
+<li>Spend only what you're willing to lose.</li>
+<li>A winner is drawn after 2 entries.</li>
+<li>Each jackpot entry costs 0.0555 KCS.</li>
+<li>There is NO house edge but a 10% tax.</li>
+<li>Sam is not responsible if you get rekt.</li>
+<li>There can be only 2 entries each round.</li>
+<li>Each 3rd entry will begin a new round.</li>
+<li>Yes, we'll make this page look better.</li>
+<li>Transaction costs .00005 KCS at 1 GWei.</li>
+<h4>Best of Luck!</h4>
+</div>
+<div class="mainstage" align="center" style="display:none">
+<h2>LEADERBOARD</h2>
+<div  style="overflow-x:auto">
+<h3>4 FTM Mini-Jackpot</h3>
+<table class="mainstage">
+	<thead>
+		<th>#</th>
+		<th>Time Stamp</th>
+		<th>Winning Address</th>
+		<th>Tx. Hash</th>
+	</thead>
+	<tbody id="winners">
+	</tbody>
+</table>
+<h3>.4 FTM Micro-Jackpot</h3>
+<table class="mainstage">
+	<thead>
+		<th>#</th>
+		<th>Time Stamp</th>
+		<th>Winning Address</th>
+		<th>Tx. Hash</th>
+	</thead>
+	<tbody id="winners02">
+	</tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div align="center">
+<b>The $KUCINO token</b><br><br><i>The presale fundraiser was completed successfully with an oversubscribed contribution of 2104 KCS! Token distribution will take place in this week.</i><br><br>
+<a href="https://explorer.kcc.io/address/0xD1cEbD4cf2fb034291585E8c0086D4b5BF20BE81" target="_blank"><button>Track Funds</button></a> <a href="preface.html" target="_blank"><button>Learn more</button></a><br><br>
+</div>
+<br>
+<br>
+<div align="center" class="advert">
+<pre>Join Our Social Media community!</pre>
+<a href="https://t.me/Kucino" target="_blank"><button>Telegram</button></a>
+<a href="https://discord.gg/QpyfMarNrV" target="_blank"><button>Discord</button></a>
+<a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
+</div>
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==321)
+		{web3 = new Web3(web3.currentProvider)}
+	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
+	lb();lb02();arf();
+}, false);
+uac="";
+async function cw()
+{
+	if(!(Number(window.ethereum.chainId)==321)){$("cw").innerHTML="Wrong network";return(0)}
+	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
+	uac = UAC[0];
+	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
+	web3.eth.Contract.defaultAccount=uac;
+}
+async function hard()
+{
+	try
+	{
+		await cw();
+		web3.eth.sendTransaction
+		({
+			from: window.ethereum.selectedAddress,
+			to: CA,
+			value: '1337000000000000000',
+			gas: '100000'
+		})
+		.then((o)=>
+		{
+			console.log(o);
+		})
+	}
+	catch(e){console.log(e)}
+}
+async function hard02()
+{
+	try
+	{
+		await cw();
+		web3.eth.sendTransaction
+		({
+			from: window.ethereum.selectedAddress,
+			to: CA02,
+			value: '133700000000000000',
+			gas: '100000'
+		})
+		.then((o)=>
+		{
+			console.log(o);
+		})
+	}
+	catch(e){console.log(e)}
+}
+const CA="0x9A6eb015aebC6466d407d40D278894bc773bd009";
+const CA02="0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124";
+//$("ca").innerHTML=CA;
+function $(_) {return document.getElementById(_);}
+function lb()
+{
+	return;
+	r = new XMLHttpRequest()
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
+	r.onload=function(){paintlb(JSON.parse(this.response).result)}
+	r.send();
+}
+function paintlb(d)
+{
+	B=$("winners");
+	B.innerHTML="";
+	for(i=d.length-1;i>=0;i--)
+	{
+		R=document.createElement("tr");
+		N=document.createElement("td");
+		W=document.createElement("td");
+		T=document.createElement("td");
+		D=document.createElement("td");
+		N.innerHTML=i+1;
+		W.innerHTML="0x"+(d[i].data).substr(26);
+		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
+		R.append(N);
+		R.append(D);
+		R.append(W);
+		R.append(T);
+		B.append(R);
+	}
+}
+function lb02()
+{
+	return;
+	r = new XMLHttpRequest()
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
+	r.onload=function(){paintlb02(JSON.parse(this.response).result)}
+	r.send();
+}
+function paintlb02(d)
+{
+	B=$("winners02");
+	B.innerHTML="";
+	for(i=d.length-1;i>=0;i--)
+	{
+		R=document.createElement("tr");
+		N=document.createElement("td");
+		W=document.createElement("td");
+		T=document.createElement("td");
+		D=document.createElement("td");
+		N.innerHTML=i+1;
+		W.innerHTML="0x"+(d[i].data).substr(26);
+		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
+		R.append(N);
+		R.append(D);
+		R.append(W);
+		R.append(T);
+		B.append(R);
+	}
+}
+function arf(){	var xfr = setInterval(function()
+	{
+		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
+		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
+		lb();lb02();//seats();seats02();
+		if(window.ethereum&&window.ethereum.selectedAddress!=null)
+			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}
+	}, 30000);}
+</script>
+</html>
