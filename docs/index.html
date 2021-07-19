@@ -170,7 +170,7 @@ async function cw()
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
 	web3.eth.Contract.defaultAccount=uac;
 }
-async function hard()
+async function hard01()
 {
 	try
 	{
@@ -198,7 +198,7 @@ async function hard02()
 		({
 			from: window.ethereum.selectedAddress,
 			to: CA02,
-			value: '133700000000000000',
+			value: '55500000000000000',
 			gas: '100000'
 		})
 		.then((o)=>
