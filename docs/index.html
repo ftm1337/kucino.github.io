@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
-<style>
-
-*{color:#e3e9f2;overflow-wrap:break-word;}
+<style>*{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
 html{background: radial-gradient(at top, #174, black);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 img{border-radius: 50%}
@@ -23,7 +21,7 @@ pre{overflow-x:auto;max-width:80%}
 	#mvg{width: 70vw}
 .mainpanels{display:grid;grid-template-columns:auto}
 .olsa{display:grid;grid-template-columns:auto auto 1%;}
-.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
+.mainstages{text-align:center;display:grid;grid-template-columns:	 auto;}
 .mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));padding:15px;
 margin:5%;border-radius: 15px;border:aqua 2px solid}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:#0f7 2px solid;}
@@ -40,8 +38,8 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
 tr:hover{background: darkslategray}
 @media(min-width:641px){
-	.mainpanels{grid-template-columns:auto}
-	.mainstages{grid-template-columns:auto}
+	.mainpanels{grid-template-columns:auto;;max-width: 50%;margin: auto}
+	.mainstages{grid-template-columns:auto;;max-width: 50%;margin: auto}
 	#mvg{width: 70%;}
 	.hhr{width: 555px}
 }
@@ -75,16 +73,16 @@ Available Balance: <span id="usba">?</span> KCS
 		<h3>2-player Jackpot</h3>
 		<br>
 		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
-			<span></span><span>Stake</span>
-			<span></span><span>0.0555 KCS</span><span></span>
 			<span></span><span>Reward</span>
 			<span></span><span>0.11 KCS</span><span></span>
+			<span></span><span>Winning Odds</span>
+			<span></span><span>1/2</span><span></span>
+			<span></span><span>Seats Vacant</span>
+			<span></span><span id="sv02">? / 2</span><span></span>
+			<span></span><span>Stake</span>
+			<span></span><span>0.0555 KCS</span><span></span>
 			<span></span><span>House Fee</span>
 			<span></span><span>10%</span><span></span>
-			<span></span><span>Winning Odds</span>
-			<span></span><span>1/2</span><span></span><!--
-			<span></span><span>Seats Vacant</span>
-			<span></span><span>?</span><span></span>-->
 		</div>
 		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button>
 	</div>
@@ -208,8 +206,8 @@ async function hard02()
 	}
 	catch(e){console.log(e)}
 }
-const JP01="0x9259bea99062b04bfc48c17dc15c01f1ea85dd84";
-const JP02="0x9259bea99062b04bfc48c17dc15c01f1ea85dd84";
+const JP01="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
+const JP02="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
 //$("ca").innerHTML=CA;
 function $(_) {return document.getElementById(_);}
 function lb()
@@ -272,6 +270,11 @@ function paintlb02(d)
 		B.append(R);
 	}
 }
+function svf(){	var svf_i = setInterval(function()
+	{
+		jp2=new web3.eth.Contract(abjp,JP02);
+		jp2.methods.cu().call((e,r)=>{$("sv02").innerText=r})
+	}, 30000);}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
@@ -280,5 +283,33 @@ function arf(){	var xfr = setInterval(function()
 		if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}
 	}, 30000);}
+abjp=[
+	{
+		"inputs": [],
+		"name": "cu",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "de",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
 </script>
 </html>
