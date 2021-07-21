@@ -96,17 +96,11 @@ tr:hover{background: darkslategray}
 		</div>
 		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Claim KCS</button><br><br><span></span><span>Status:</span>
 		<span></span><span id="claimstatus">Awaiting Initialization</span><span></span>
-	</div>
+	</div><br>
 	<b>Time for Next Claim</b><br>
 	<span style="font-size:1.5em" id="nextclaim">?d ?h ?m ?s</span>
 </div>
-<div class="mainstage" align="center" style="display:none">
-<h4>Manual Betting</h4>
-Micro-jackpot<br>
-Simply send 0.1337 FTM to 0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124 with <b>"Gas Limit"</b> of 100000.<br><br>
-Mini-jackpot<br>
-Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
-</div>
+<br><br>
 <div class="mainstage" align="center" style="font-size:">
 <h3>Reward Information</h3>
 KSC can be claimed only by KUCINO holders. Claimable amount is proportional to your holdings of KUCINO at the claim time. Buying more KUCINO will push your claim time further. Selling KUCINO will reduce your earned KCS. <b>Some lucky claimers may hit the Jackpot and earn more KCS than they expect.</b> Claiming more than 13.37 KCS together will cause a buyback with 20% of the KCS to pump the price a little. If your balance ever becomes 0 KUCINO, you will have to wait for decades to claim the KCS rewards.
@@ -152,8 +146,6 @@ window.addEventListener('load',async function()
 	if(window.ethereum&&Number(window.ethereum.chainId)==321)
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
-	//lb();lb02();arf();
-	jpsv_s_f();gub();svf();
 }, false);
 uac="";
 async function cw()
