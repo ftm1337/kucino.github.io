@@ -100,6 +100,15 @@ html, body{padding: 0;margin: 0}
 <span style="font-size:1.5em">KUCINO will be officialy listed at KuDEX soon.</span><br><br>
 	There has been a slight delay in the contract deployment and verification.<br><br>We regret the inconvenience caused and apologise for the same. An official announcement shall follow soon at our community group.
 <br><br>
+<span style="font-size:1.5em">KUCINO will be officialy listed at KuDEX after 8 P.M. UTC.</span><br><br>
+<div class="CDT">
+<span></span><span class="cdt" id="cdth">hh</span>
+<span></span><span class="cdt" id="cdtm">mm</span>
+<span></span><span class="cdt" id="cdts">ss</span><span></span>
+<span></span><span>Hrs.</span>
+<span></span><span>Mins.</span>
+<span></span><span>Secs.</span><span></span>
+</div><br><br>
 Please avoid trading and transacting during the first 40 minutes. There will be 90% liquidity fee to avoid sniping. The pre-sale allocation will also be distributed during this period.
 </div>
 <br>
@@ -113,5 +122,17 @@ Please avoid trading and transacting during the first 40 minutes. There will be 
 </div>
 <div style="font-size:0.64em">For appropriate age and geographical restriction information, please consult your local jurisdiction's competent authorities. Continuing to use this site beyond this homepage reflects your explicit consent to be aware of this notice and furthermore explicitly agree to indemnify the platform in any court of law. Gambling might be addictive and cause severe financial ruin. Play responsibly and at your own risk.</div>
 <script>function $(_) {return document.getElementById(_);}
+	var listing = 1627156800000+86400000; //8pm GMT
+var x = setInterval(function()
+{
+	var left = listing - (new Date().getTime());
+	$("cdth").innerHTML=Math.floor((left%(86400000))/3600000);
+	$("cdtm").innerHTML=Math.floor((left%(3600000))/60000);
+	$("cdts").innerHTML=Math.floor((left%(60000))/1000);
+	if (left < 0)
+	{
+		clearInterval(x);
+	}
+}, 1000);
 </script>
 </html>
