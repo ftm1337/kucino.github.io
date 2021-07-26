@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
-<style>*{color:#e3e9f2;overflow-wrap:break-word;}
+<style>*{color:#e3e9f2;overflow-wrap:break-word;overflow-x:hidden}
 a{text-decoration-line:none;padding:0 2px}
 html{background: radial-gradient(at top, #174, black);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 img{border-radius: 50%}
@@ -219,9 +219,10 @@ function getUserStats(u)
 	K.methods.calculateKCSReward(u).call((e,r)=>{$("uc").innerHTML=(Number(r)/1e18).toFixed(8)})
 	K.methods.nextAvailableClaimDate(u).call((e,r)=>{
 	var tar = Number(r)*1e3;
-	if(tar>new Date().getTime())
+	if(tar > 2)
 	{
-		if(tar>2){$("claimStatus").innerHTML="Ready to Claim!"}
+		$("cd").innerHTML=(new Date(tar)).toLocaleString()
+		if(tar< Date.now()){$("claimStatus").innerHTML="Ready to Claim!";return}
 		var x = setInterval(function()
 		{
 			gap = new Date(tar - Date.now());
@@ -233,7 +234,6 @@ function getUserStats(u)
 				clearInterval(x);
 			}
 		}, 1000);
-		$("cd").innerHTML=(new Date(tar)).toLocaleString()
 	}
 	else
 	{
