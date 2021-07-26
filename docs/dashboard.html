@@ -110,8 +110,8 @@ KSC can be claimed only by KUCINO holders. Claimable amount is proportional to y
 <div class="mainstat"><b>Rewards Pool</b><br><span id="d_kp">?</span> KCS</div>
 <div class="mainstat"><b>Reward Cycle</b><br><span id="d_rc">21</span> hours</div>
 <div class="mainstat"><b>Rewards Paid</b><br><span id="d_rp">?</span> KCS</div>
-<div class="mainstat"><b>Disruption Tax</b><br>1 KCS / 2 KCS</div>
-<div class="mainstat"><b>Transfer Tax</b><br>11.8 %</div>
+<div class="mainstat"><b>Disruption Tax</b><br><span>2</span> KCS</div>
+<div class="mainstat"><b>Transfer Tax</b><br><span>11.75 %</span></div>
 <div class="mainstat"><b>Max. Txn. Size</b><br><span id="d_mt">13.37M</span> KUCINO</div>
 </div>
 <br>
@@ -187,6 +187,7 @@ async function cw()
 	uac = UAC[0];
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
 	web3.eth.Contract.defaultAccount=uac;
+	getStats();
 }
 function $(_) {return document.getElementById(_);}
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
@@ -212,7 +213,8 @@ async function getStats()
 }
 function getUserStats(u)
 {
-	K.methods.balanceOf(u).call((e,r)=>{$("ub").innerHTML=Number(r).toLocaleString()})
+	gub()
+	K.methods.balanceOf(u).call((e,r)=>{$("ub").innerHTML=Number((Number(r)/1e9).toFixed(0)).toLocaleString()})
 	K.methods.totalRewards(u).call((e,r)=>{$("ue").innerHTML=(Number(r)/1e18).toFixed(8)})
 	K.methods.calculateKCSReward(u).call((e,r)=>{$("uc").innerHTML=(Number(r)/1e18).toFixed(8)})
 	K.methods.nextAvailableClaimDate(u).call((e,r)=>{
@@ -231,8 +233,14 @@ function getUserStats(u)
 				clearInterval(x);
 			}
 		}, 1000);
+		$("cd").innerHTML=(new Date(tar)).toLocaleString()
 	}
-	$("cd").innerHTML=(new Date(tar)).toLocaleString()})
+	else
+	{
+		$("cd").innerHTML="";
+		$("nextclaim").innerHTML="Zero Volume!<br>Trade a little bit!<br>(Trade atleast once, 21hrs after launch)";
+	}
+	})
 }
 KUCINO = "0x4c9fa6297D3413FbbE7bA935e14022d0e5a39DC7";
 DAO = "0x167D87A906dA361A10061fe42bbe89451c2EE584";
