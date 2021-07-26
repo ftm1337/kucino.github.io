@@ -40,6 +40,7 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 .fardet span:nth-of-type(5n+4){text-align: right}
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
 tr:hover{background: darkslategray}
+.mainstats span{font-size: 1.5em}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
@@ -88,12 +89,12 @@ tr:hover{background: darkslategray}
 		<br>
 		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 			<span></span><span>Earnings</span>
-			<span></span><span id="ue">? KCS</span><span></span>
-			<span></span><span>Claimable</span>
-			<span></span><span id="uc">? KCS</span><span></span>
+			<span></span><span id="ue">?</span><span>KCS</span>
+			<span></span><span>Next Claim</span>
+			<span></span><span id="uc">?</span><span>KCS</span>
 		</div>
 		<br><button class="farmcontrols" id="ck" onclick="ck()">Claim KCS</button><br><br><span></span><span>Status:</span>
-		<span></span><span id="claimstatus">Awaiting Initialization</span><span></span>
+		<span></span><span id="claimStatus">Awaiting Initialization</span><span></span>
 	</div><br>
 	<b>Time for Next Claim</b><br>
 	<span style="font-size:1.5em" id="nextclaim">?d ?h ?m ?s</span><br>
@@ -126,12 +127,12 @@ May the <code>0xD1cE</code> be with you!<br><span style="font-size:3em">🎰</sp
 <br>
 <br>
 <div class="mainstats">
-<div class="mainstat"><b>Spot Price</b><br>? KCS</div>
-<div class="mainstat"><b>Market Cap</b><br>? USD</div>
-<div class="mainstat"><b>Circ. Supply</b><br>? KUCINO</div>
-<div class="mainstat"><b>Max. Liquid Pool</b><br>? USD<br><i>?/KUCINO</i></div>
-<div class="mainstat"><b>Yield Farms</b><br>? farms<br><i>Discover farms</i></div>
-<div class="mainstat"><b>24h Volume</b><br>? USD<br><i>DEX: ?</i></div>
+<div class="mainstat"><b>Spot Price / Million</b><br><span id="md_p">?</span> KCS</div>
+<div class="mainstat"><b>Market Cap</b><br><span id="md_mc">?</span> KCS</div>
+<div class="mainstat"><b>Circ. Supply</b><br><span id="md_cs">4 Billion</span> kucino</div>
+<div class="mainstat"><b>Total Liquidity</b><br><span id="md_lp">?</span> KCS<br><i>?/KUCINO</i></div>
+<div class="mainstat"><b>Yield Farms</b><br><span id="md_f">?</span> farms<br><i>Discover farms</i></div>
+<div class="mainstat"><b>24h Volume</b><br><span id="md_dv">?</span> USD<br><i>DEX: ?</i></div>
 </div>
 <br>
 <br>
@@ -141,9 +142,9 @@ May the <code>0xD1cE</code> be with you!<br><span style="font-size:3em">🎰</sp
 <div class="mainstage" align="center">
 <h2 align="center">Kucino Balance Sheet</h2>
 <div class="mainstats">
-<div class="mainstat"><b>KCS holdings</b><br><span style="font-size:2em" id="h_k">?</span></div>
-<div class="mainstat"><b>USD Stables</b><br><span style="font-size:2em" id="h_s">?</span></div>
-<div class="mainstat"><b>KUCINO Rake</b><br><span style="font-size:2em" id="h_t">?</span></div>
+<div class="mainstat"><b>KCS holdings</b><br><span style="" id="h_k">?</span></div>
+<div class="mainstat"><b>USD Stables</b><br><span style="" id="h_s">0.000</span></div>
+<div class="mainstat"><b>KUCINO Rake</b><br><span style="" id="h_t">?</span></div>
 </div>
 <br>
 Each Game, Transaction, Liquidity Flooring Event and Claim of KCS by holders implicitly builds up bankroll for The House of Kucino, which ultimately goes back to the Players and Investors of The Kucino.
@@ -196,17 +197,42 @@ async function getStats()
 {
 	K=new web3.eth.Contract(a,KUCINO);
 	//getGlobalStats()
-	web3.eth.getBalance(KUCINO).then(b=>{b=Number(b);$("kcspool").innerHTML=(b/1e18).toFixed(8);$("d_kp").innerHTML=(b/1e18).toFixed(8);})
+	web3.eth.getBalance(KUCINO).then(b=>{b=Number(b);$("kcspool").innerHTML=(b/1e18).toFixed(8);$("d_kp").innerHTML=(b/1e18).toFixed(6);})
 	web3.eth.getBalance(DAO).then(b=>{b=Number(b);$("h_k").innerHTML=(b/1e18).toLocaleString()})
 	K.methods.totalReward().call((e,r)=>{$("d_rp").innerHTML=Number(r)/1e18})
+	K.methods.balanceOf(DAO).call((e,r)=>{$("h_t").innerHTML=(Number((Number(r)/1e9).toFixed(0))).toLocaleString()})
 	if(window.ethereum&&window.ethereum.selectedAddress!=null){getUserStats(window.ethereum.selectedAddress)}
+	P1=new web3.eth.Contract(pa_,"0x8fffdb82d02e099e72df7b7a955b3f09ac981aac");
+	const t1 = await P1.methods.totalSupply().call((e,r)=>{return(Number(r))})
+	const r1 = await P1.methods.getReserves().call((e,r)=>{let r1=([Number(r[0]),Number(r[1])]);return r1})
+	console.log(r1,t1)
+	$("md_p").innerHTML=(r1[0]/r1[1]/1e3).toLocaleString();
+	$("md_mc").innerHTML=(r1[0]/r1[1]*4).toLocaleString();
+	$("md_lp").innerHTML=(r1[0]/1e18*2).toLocaleString();
 }
 function getUserStats(u)
 {
 	K.methods.balanceOf(u).call((e,r)=>{$("ub").innerHTML=Number(r).toLocaleString()})
 	K.methods.totalRewards(u).call((e,r)=>{$("ue").innerHTML=(Number(r)/1e18).toFixed(8)})
 	K.methods.calculateKCSReward(u).call((e,r)=>{$("uc").innerHTML=(Number(r)/1e18).toFixed(8)})
-	K.methods.nextAvailableClaimDate(u).call((e,r)=>{$("cd").innerHTML=(new Date(Number(r)*1e3)).toLocaleString()})
+	K.methods.nextAvailableClaimDate(u).call((e,r)=>{
+	var tar = Number(r)*1e3;
+	if(tar>new Date().getTime())
+	{
+		if(tar>2){$("claimStatus").innerHTML="Ready to Claim!"}
+		var x = setInterval(function()
+		{
+			gap = new Date(tar - Date.now());
+			con = gap.getUTCDate()-1+"D "+gap.getUTCHours()+"h "+gap.getUTCMinutes()+"m "+gap.getUTCSeconds()+"s";
+
+			$("nextclaim").innerHTML=con;
+			if (gap < 0)
+			{
+				clearInterval(x);
+			}
+		}, 1000);
+	}
+	$("cd").innerHTML=(new Date(tar)).toLocaleString()})
 }
 KUCINO = "0x4c9fa6297D3413FbbE7bA935e14022d0e5a39DC7";
 DAO = "0x167D87A906dA361A10061fe42bbe89451c2EE584";
@@ -216,5 +242,69 @@ async function cl()
 	K.methods.claimKCSReward().send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("claim:",r);getUserStats()})
 
 }
+pa_=[
+  {
+    "varant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "varant": true,
+    "inputs": [],
+    "name": "getReserves",
+    "outputs": [
+      {
+        "internalType": "uint112",
+        "name": "_reserve0",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint112",
+        "name": "_reserve1",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_blockTimestampLast",
+        "type": "uint32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "varant": true,
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
 </script>
 </html>
