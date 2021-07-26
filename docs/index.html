@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
-<style>*{color:#e3e9f2;overflow-wrap:break-word;}
+<style>*{color:#e3e9f2;overflow-wrap:break-word;overflow-x:hidden}
 a{text-decoration-line:none;padding:0 2px}
 html{background: radial-gradient(at top, #174, black);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 img{border-radius: 50%}
@@ -40,6 +40,9 @@ tr:hover{background: darkslategray}
 html, body{padding: 0;margin: 0}
 .et{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:right}
 .ot{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:left}
+.mte{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.mto{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.uo{background: linear-gradient(to bottom,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
 .tile{padding: 10px;display: grid;}
 .tile div{margin:10px}
 .cdt{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));border:2px solid #1ea; font-size:2em}
@@ -62,13 +65,14 @@ html, body{padding: 0;margin: 0}
 </div>
 <hr class="hhr">
 <div align="center">
-<a href="https://ftm.guru/degam.html" style="color:#0ff">Switch to Fantom Version</a><br>
-<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a>
+	<a href="https://ftm.guru/degam.html" style="color:#0ff">Switch to Fantom Version</a><br>
+	<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a>
 </div>
 <br>
 <br>
-<div align="center">
-<h1>Welcome to KUCINO🎰</h1>
+<div align="center" class="uo"><br><br>
+	<span style="font-size:4em">KUCINO Casino 🎰</span>
+	<br><br><br><br>
 </div>
 <div class="tile ot">
 	<div style="font-size:2em;color:">Hodl KUCINO, <b>Earn KCS!</b></div>
@@ -82,11 +86,11 @@ html, body{padding: 0;margin: 0}
 	<div style="font-size:2em;color:">Claim Rewards, <b>Earn Jackpot bonus!</b></div>
 	<div style="font-size:1.25em;color:"> Every once in a while, a lucky KCS claimer will be rewarded a <b>Jackpot Claim</b>, which will be an amount of KCS significantly greater than their expected earnings!</div>
 </div>
-<div class="tile ot">
+<div class="tile et">
 	<div style="font-size:2em;color:">Hodl 13.37k KUCINO, <b>Earn Satty to KuPOT!</b></div>
 	<div style="font-size:1.25em;color:">A part of each transaction will also be used to fund <b>The KuPot</b>, where holders drain the KuPOT smart contract's balance!</div>
 </div>
-<div class="tile et">
+<div class="tile ot">
 	<div style="font-size:2em;color:">Hodl 1M KUCINO, <b>Earn Seat at Re-Roller!</b></div>
 	<div style="font-size:1.25em;color:">The Elite KUCINO holders with holdings over 1 Million earn unlimited shots at <b>The Re-Roller</b>, our biggest Jackpot with huge KCS payouts!</div>
 </div>
@@ -94,24 +98,39 @@ html, body{padding: 0;margin: 0}
 <br>
 <br>
 <div align="center">
-<b>The $KUCINO token</b><br><br><i>The presale fundraiser was completed successfully with an oversubscribed contribution of 2104 KCS! Token distribution will take place in this week.</i><br><br>
-<a href="https://explorer.kcc.io/address/0xD1cEbD4cf2fb034291585E8c0086D4b5BF20BE81" target="_blank"><button>Track Funds</button></a><br><br>
-<br><br>
-<span style="font-size:1.5em">KUCINO will be officialy listed at KuDEX after 8 P.M. UTC.</span><br><br>
-Contract address:<br>
-<h4><a href="https://explorer.kcc.io/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank">0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7</a></h4>
-Verify Code at <a href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code" target="_blank">testnet.</a> The Bytecode should match exactly, part from the last 40 characters, which is the KuDex router address.
-<br><br>
-Please avoid trading and transacting during the first 40 minutes. There will be 90% liquidity fee to avoid sniping. The pre-sale allocation will also be distributed during this period.
+	<div align="center">
+		<a href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><img style="border-radius:0;padding-left:20%" src="img/kudex.png"></a>
+	</div>
+	<span style="font-size:1.5em;text-shadow:2px 0 5px black">KUCINO is officialy listed at KuDEX!</span><br><br><a href="https://kcc.poocoin.app/tokens/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><button>Candlesticks</button></a><a href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><button>Trade Now!</button></a><br><br>
 </div>
+<div class="mte" align="center">
 <br>
+<b style="font-size:1.5em;">The $KUCINO token</b><br><br><i>The presale fundraiser was completed successfully with an oversubscribed contribution of 2104 KCS!</i><br><br>
+<b>Full raise added to LP!</b><br>Liquidity tokens timelocked for extensible period using our special and innovative timelock!<br><br>
+</div>
+<div class="uo" align="center">
 <br>
+Contract address:
+<h4><a href="https://explorer.kcc.io/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank">0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7</a></h4><span style="font-size:0.9em">
+Verify the Source Code at <b><a href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code" target="_blank">testnet.</a></b> The Bytecode should match exactly, apart from the last 40 characters, which is the KuDex router address. Total length is 31,004 chars.
+<br><br>
+</div>
+<div class="mte" align="center">
+<br>
+<b style="font-size:1.5em;">Anti-Sniper Launch</b><br><br>Users were adviced to avoid trading and transacting during the first 40 minutes as there was 90% liquidity fee to avoid sniping while the pre-sale allocation was being distributed using <b><a href="https://ftm.guru" target="_blank">FTM.guru</a></b>'s Airdrop-Tool.</span>
+<br><br>
+</div>
+<div class="mto" align="center">
+<br>
+<b style="font-size:1.5em;">7 Beneficial tokenomics!<br><br><a href="tokenomics.html" target=""><button style="font-size:1.5em;">Discover KUCINO</button></a>
+</b><br><br>
+</div>
 <div align="center" class="advert">
 <pre>Join Our community!</pre>
 <a href="https://t.me/Kucino" target="_blank"><button>Telegram</button></a>
 <a href="https://discord.gg/QpyfMarNrV" target="_blank"><button>Discord</button></a><br><br>
-<a href="https://ftm.guru/degam.html" style="color:#0ff">Switch to Fantom Version</a><br>
-<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a>
+<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a><br>
+<a href="https://ftm.guru/degam.html" style="color:#0ff">Switch to Fantom Version</a>
 </div>
 <div style="font-size:0.64em">For appropriate age and geographical restriction information, please consult your local jurisdiction's competent authorities. Continuing to use this site beyond this homepage reflects your explicit consent to be aware of this notice and furthermore explicitly agree to indemnify the platform in any court of law. Gambling might be addictive and cause severe financial ruin. Play responsibly and at your own risk.</div>
 <script>function $(_) {return document.getElementById(_);}
