@@ -41,6 +41,10 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
 tr:hover{background: darkslategray}
 .mainstats span{font-size: 1.5em}
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
@@ -93,7 +97,7 @@ tr:hover{background: darkslategray}
 			<span></span><span>Next Claim</span>
 			<span></span><span id="uc">?</span><span>KCS</span>
 		</div>
-		<br><button class="farmcontrols" id="ck" onclick="ck()">Claim KCS</button><br><br><span></span><span>Status:</span>
+		<br><button disabled class="farmcontrols" id="ck" onclick="ck()">Claim KCS</button><br><br><span></span><span>Status:</span>
 		<span></span><span id="claimStatus">Awaiting Initialization</span><span></span>
 	</div><br>
 	<b>Time for Next Claim</b><br>
@@ -142,9 +146,12 @@ May the <code>0xD1cE</code> be with you!<br><span style="font-size:3em">🎰</sp
 <div class="mainstage" align="center">
 <h2 align="center">Kucino Balance Sheet</h2>
 <div class="mainstats">
-<div class="mainstat"><b>KCS holdings</b><br><span style="" id="h_k">?</span></div>
+<div class="mainstat"><b>KCS Revenue</b><br><span style="" id="h_k">?</span></div>
 <div class="mainstat"><b>USD Stables</b><br><span style="" id="h_s">0.000</span></div>
-<div class="mainstat"><b>KUCINO Rake</b><br><span style="" id="h_t">?</span></div>
+<div class="mainstat"><b>KuPOT JackPot</b><br><span style="" id="h_tr">?</span></div>
+<div class="mainstat"><b>Airdrop Wallet</b><br><span style="" id="h_tr_a">?</span></div>
+<div class="mainstat"><b>Marketing Budget</b><br><span style="" id="h_tr_m">?</span></div>
+<div class="mainstat"><b>Dev Fund</b><br><span style="" id="h_tr_d">?</span></div>
 </div>
 <br>
 Each Game, Transaction, Liquidity Flooring Event and Claim of KCS by holders implicitly builds up bankroll for The House of Kucino, which ultimately goes back to the Players and Investors of The Kucino.
@@ -201,15 +208,15 @@ async function getStats()
 	web3.eth.getBalance(KUCINO).then(b=>{b=Number(b);$("kcspool").innerHTML=(b/1e18).toFixed(8);$("d_kp").innerHTML=(b/1e18).toFixed(6);})
 	web3.eth.getBalance(DAO).then(b=>{b=Number(b);$("h_k").innerHTML=(b/1e18).toLocaleString()})
 	K.methods.totalReward().call((e,r)=>{$("d_rp").innerHTML=Number(r)/1e18})
-	K.methods.balanceOf(DAO).call((e,r)=>{$("h_t").innerHTML=(Number((Number(r)/1e9).toFixed(0))).toLocaleString()})
+	K.methods.balanceOf(DAO).call((e,r)=>{$("h_tr").innerHTML=(Number((Number(r)/1e9*2/3).toFixed(0))).toLocaleString();$("h_tr_m").innerHTML=(Number((Number(r)/1e9*1/3*3/6).toFixed(0))).toLocaleString();$("h_tr_a").innerHTML=(Number((Number(r)/1e9*1/3*2/6).toFixed(0))).toLocaleString();$("h_tr_d").innerHTML=(Number((Number(r)/1e9*1/3*1/6).toFixed(0))).toLocaleString()})
 	if(window.ethereum&&window.ethereum.selectedAddress!=null){getUserStats(window.ethereum.selectedAddress)}
 	P1=new web3.eth.Contract(pa_,"0x8fffdb82d02e099e72df7b7a955b3f09ac981aac");
 	const t1 = await P1.methods.totalSupply().call((e,r)=>{return(Number(r))})
 	const r1 = await P1.methods.getReserves().call((e,r)=>{let r1=([Number(r[0]),Number(r[1])]);return r1})
 	console.log(r1,t1)
-	$("md_p").innerHTML=(r1[0]/r1[1]/1e3).toLocaleString();
-	$("md_mc").innerHTML=(r1[0]/r1[1]*4).toLocaleString();
-	$("md_lp").innerHTML=(r1[0]/1e18*2).toLocaleString();
+	$("md_p").innerHTML=(r1[0]/r1[1]/1e3).toFixed(5);
+	$("md_mc").innerHTML=Number((r1[0]/r1[1]*4).toFixed(0)).toLocaleString();
+	$("md_lp").innerHTML=Number((r1[0]/1e18*2).toFixed(0)).toLocaleString();
 }
 function getUserStats(u)
 {
@@ -222,7 +229,14 @@ function getUserStats(u)
 	if(tar > 2)
 	{
 		$("cd").innerHTML=(new Date(tar)).toLocaleString()
-		if(tar< Date.now()){$("claimStatus").innerHTML="Ready to Claim!";return}
+		if(tar< Date.now())
+			{
+				$("claimStatus").innerHTML="Ready to Claim!";
+				$("nextclaim").innerHTML="";
+				$("ck").enabled=true;
+				return
+			}
+		$("ck").disabled=true;
 		var x = setInterval(function()
 		{
 			gap = new Date(tar - Date.now());
@@ -313,6 +327,12 @@ pa_=[
     "type": "function"
   }
 ];
-
+function ck()
+{
+	K.methods.claimKCSReward().send({from:window.ethereum.selectedAddress},(e,r)=>{
+		console.log("claim:",r);
+		$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcs.io/tx/${r}">Check status here.</a></b>`;
+	})
+}
 </script>
 </html>
