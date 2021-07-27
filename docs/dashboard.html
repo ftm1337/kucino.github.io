@@ -97,7 +97,7 @@ button:disabled {
 			<span></span><span>Next Claim</span>
 			<span></span><span id="uc">?</span><span>KCS</span>
 		</div>
-		<br><button disabled class="farmcontrols" id="ck" onclick="ck()">Claim KCS</button><br><br><span></span><span>Status:</span>
+		<br><button class="farmcontrols" id="ck" onclick="ck()">Claim KCS</button><br><br><span></span><span>Status:</span>
 		<span></span><span id="claimStatus">Awaiting Initialization</span><span></span>
 	</div><br>
 	<b>Time for Next Claim</b><br>
@@ -236,7 +236,7 @@ function getUserStats(u)
 				$("ck").enabled=true;
 				return
 			}
-		$("ck").disabled=true;
+		//$("ck").disabled=true;
 		var x = setInterval(function()
 		{
 			gap = new Date(tar - Date.now());
