@@ -221,7 +221,7 @@ async function soft01()
 	}
 	catch(e){console.log(e)}
 }
-const JP01=web3.utils.toChecksumAddress("0x19d0480022eaf3e4e25472efea9eeba372c9f35f");
+JP01 = "0x19d0480022eaf3e4E25472efEA9eeba372c9F35f";
 //$("ca").innerHTML=CA;
 function $(_) {return document.getElementById(_);}
 function lb()
@@ -286,7 +286,7 @@ function paintlb02(d)
 }
 function jpsv_s_f()
 {
-	jp2=new web3.eth.Contract(abjp,JP02);
+	jp2=new web3.eth.Contract(abjp,JP01);
 	$("sv02").innerHTML="Scanning ...";
 	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>";$("pn").innerHTML=r;$("p_n").innerHTML=r;});
 }
