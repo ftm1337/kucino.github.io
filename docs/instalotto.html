@@ -71,15 +71,17 @@ Available Balance: <span id="usba">?</span> KCS
 </div>
 <br>
 <div class="mainstages mainstage" align="center">
-	<span style="font-size:2em;font-weight:bolder">Win ? KCS</span>
+	<span style="font-size:2em;font-weight:bolder">Win <span id="ps">?</span> KCS</span>
 	<div class="mainstage" style="" align="center">
 		<h2>Kucino 🎰 instaLotto</h2>
 		<br>
 		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 			<span></span><span>Winning Odds</span>
-			<span></span><span>1/N</span><span></span>
+			<span></span><span>1/<span id="pn">?</span></span><span></span>
 			<span></span><span>Ticket Price</span>
 			<span></span><span>0.01 KCS</span><span></span>
+			<span></span><span>Players</span>
+			<span></span><span id="p_n">?</span><span></span>
 		</div>
 		<br>
 		<span></span><span>Status:</span>
@@ -170,7 +172,7 @@ window.addEventListener('load',async function()
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	//lb();lb02();arf();
-	jpsv_s_f();gub();svf();
+	jpsv_s_f();gub();gpb();svf();
 }, false);
 uac="";
 async function cw()
@@ -286,7 +288,7 @@ function jpsv_s_f()
 {
 	jp2=new web3.eth.Contract(abjp,JP02);
 	$("sv02").innerHTML="Scanning ...";
-	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>"});
+	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>";$("pn").innerHTML=r;$("p_n").innerHTML=r;});
 }
 function svf()
 {	var svf_i = setInterval(
@@ -298,6 +300,7 @@ function svf()
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
+function gpb(){web3.eth.getBalance(JP01).then(r=>{$("ps").innerHTML=(Number(r)/1e18).toLocaleString();})}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
