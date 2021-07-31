@@ -43,6 +43,18 @@ tr:hover{background: darkslategray}
 	#mvg{width: 70%;}
 	.hhr{width: 555px}
 }
+.lowercat {text-align: center;padding:10px;line-height:1.5}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.5em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: auto;text-align:}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
+	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
+	.mainstats{grid-template-columns:auto auto auto;margin: auto}
+	#mvg{width: 70%;}
+	.hhr{width: 555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:}
+}
 </style>
 </head>
 <div class="topbar">
@@ -112,20 +124,34 @@ Our first proof-of-concept is live at <b><u><a href="casino.html">our Kucoin Cha
 <br>
 <br>
 <br>
-<div align="center">
-<b>The $KUCINO token</b><br><br>
-</div>
-<div align="center">
-	<div align="center">
-		<a href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><img style="border-radius:0;padding-left:20%" src="img/kudex.png"></a>
+<div class="lowerbar">
+	<div class="lowercat">
+		<span>Dashboard</span><br>
+		<a href="claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="markets.html">Market Statistics</a><br>
+		<a href="balancesheet.html">Balance Sheet</a><br>
+		<a href="balancesheet.html">$KUCINO Specs</a><br>
+		<a href="claimkcs.html">$KUCINO Specs</a>
 	</div>
-	<span style="font-size:1.5em;text-shadow:2px 0 5px black">KUCINO is officialy listed at KuDEX!</span><br><br>
-</div>
-<div align="center" class="advert">
-<pre>Join Our community!</pre>
-<a href="https://t.me/Kucino" target="_blank"><button>Telegram</button></a>
-<a href="https://discord.gg/QpyfMarNrV" target="_blank"><button>Discord</button></a><br><br>
-<a href="https://ftm.guru/degam.html" style="color:#0ff">Switch to Fantom Version</a><br>
-<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a>
+	<div class="lowercat">
+		<span>Casino & Games</span><br>
+		<a href="jackpot_1.html">2-player Jackpot</a><br>
+		<a href="instalotto.html">instaLOTTO</a><br>
+		<a href="21hrlotto.html">21-hour LOTTO</a>
+	</div>
+	<div class="lowercat">
+		<span>Resources</span><br>
+		<a target="_blank" href="https://kcc.guru">ftm.guru</a><br>
+		<a target="_blank" href="docs">Documentation</a><br>
+		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a>
+	</div>
+	<div class="lowercat">
+		<span>Social Media</span><br>
+		<a target="_blank" href="https://t.me/kucino">Telegram Group</a><br>
+		<a target="_blank" href="https://t.me/kccguru">Telegram Channel</a><br>
+		<a target="_blank" href="https://medium.com/@ftm1337">Medium Journal</a><br>
+		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
+		<a target="_blank" href="https://twitter.com/kccGuru">Twitter Handle</a>
+	</div>
 </div>
 </html>

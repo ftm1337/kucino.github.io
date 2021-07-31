@@ -1,7 +1,7 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>🎰 KUCINO : KCC.guru | The GURU Network</title>
-<meta name="description" content="Kucino is the first Casino on the Kucoin Community Chain | Powered by The GURU Network">
+<title>🎰 KUCINO : instaLOTTO - KCC.guru | The GURU Network</title>
+<meta name="description" content="Earn huge KCS rewards with Kucino's Decentralized lotto! Kucino is the first Casino on the Kucoin Community Chain | Powered by The GURU Network">
 <meta name="keywords" content="Dice, Coin Flip, Coin Toss,Lotto, jackpot, betting, gambling, on-chain, blockchain, Kucoin Community Chain, KCC, KCS, Decentralized Finance, KUCINO">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -83,21 +83,28 @@ Available Balance: <span id="usba">?</span> KCS
 </div>
 <br>
 <div class="mainstages mainstage" align="center">
+	<span style="font-size:2em;font-weight:bolder">Win <span id="ps">?</span> KCS</span><br>
+		1 Lotto Winner in every 10,000 seconds
 	<div class="mainstage" style="" align="center">
-		<h2>🎰 0.11 KCS</h2>
-		<h3>2-player Jackpot</h3>
+		<h2>Kucino 🎰 10k Lotto</h2>
 		<br>
 		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 			<span></span><span>Winning Odds</span>
-			<span></span><span>1/2</span><span></span>
-			<span></span><span>Stake</span>
-			<span></span><span>0.0555 KCS</span><span></span>
+			<span></span><span>1/<span id="pn">?</span></span><span></span>
+			<span></span><span>Ticket Price</span>
+			<span></span><span>0.01 KCS</span><span></span>
+			<span></span><span>Players</span>
+			<span></span><span id="p_n">?</span><span></span>
 		</div>
 		<br>
 		<span></span><span>Status:</span>
 		<span></span><span id="sv02">Scanning ...</span><span></span>
-		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button><br><br>
+		<br>
+		<button class="farmcontrols" id="habu01" onclick="hard01()">Deposit</button>
+		<button class="farmcontrols" id="habu02" onclick="soft01()">Finish</button>
+		<br><br>
 	</div>
+		<span style="font-size:1.2em;font-weight:bolder">Multi-player Insta-Jackpot</span>
 </div>
 <div class="mainstage" align="center" style="display:none">
 <h4>Manual Betting</h4>
@@ -106,16 +113,22 @@ Simply send 0.1337 FTM to 0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124 with <b>"Ga
 Mini-jackpot<br>
 Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
 </div>
+<div class="mainstage" align="center" style="font-size:1em">
+<h3>Players</h3>
+<div id="degens"></div>
+<h4>Best of Luck!</h4>
+</div>
 <div class="mainstage" align="center" style="font-size:0.8em">
 <h3>Rules</h3>
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
-<li>A winner is drawn after 2 entries.</li>
-<li>Each jackpot entry costs 0.0555 KCS.</li>
+<li><b>Buy tickets to the lotto for 0.01 KCS.<b></li>
+<li><b>Anyone can finish the game at anytime.<b></li>
+<li><b>Finishing Game will declare a Winner.<b></li>
+<li><b>Winner earns the full KCS JackPot Prize.<b></li>
+<li><b>Winnings credited instantly to wallet.<b></li>
 <li>There's NO house edge but a <b>10% tax.</b></li>
 <li>House is not responsible if you get rekt.</li>
-<li>There can be only 2 entries each round.</li>
-<li>Each 3rd entry will begin a new round.</li>
 <li>Yes, we'll make this page look better.</li>
 <li>Transaction costs .00005 KCS at 1 GWei.</li>
 <h4>Best of Luck!</h4>
@@ -202,7 +215,7 @@ window.addEventListener('load',async function()
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	//lb();lb02();arf();
-	jpsv_s_f();gub();svf();
+	jpsv_s_f();gub();gpb();svf();
 }, false);
 uac="";
 async function cw()
@@ -222,7 +235,7 @@ async function hard01()
 		({
 			from: window.ethereum.selectedAddress,
 			to: JP01,
-			value: '555000000000000000',
+			value: '10000000000000000',
 			gas: '100000'
 		})
 		.then((o)=>
@@ -232,7 +245,7 @@ async function hard01()
 	}
 	catch(e){console.log(e)}
 }
-async function hard02()
+async function soft01()
 {
 	try
 	{
@@ -240,8 +253,8 @@ async function hard02()
 		web3.eth.sendTransaction
 		({
 			from: window.ethereum.selectedAddress,
-			to: JP02,
-			value: '55500000000000000',
+			to: JP01,
+			value: '0',
 			gas: '100000'
 		})
 		.then((o)=>
@@ -251,8 +264,7 @@ async function hard02()
 	}
 	catch(e){console.log(e)}
 }
-const JP01="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
-const JP02="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
+JP01 = "0x19d0480022eaf3e4E25472efEA9eeba372c9F35f";
 //$("ca").innerHTML=CA;
 function $(_) {return document.getElementById(_);}
 function lb()
@@ -315,11 +327,29 @@ function paintlb02(d)
 		B.append(R);
 	}
 }
-function jpsv_s_f()
+async function jpsv_s_f()
 {
-	jp2=new web3.eth.Contract(abjp,JP02);
+	jp2=new web3.eth.Contract(abjp,JP01);
 	$("sv02").innerHTML="Scanning ...";
-	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>"});
+	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>";$("pn").innerHTML=r;$("p_n").innerHTML=r;});
+	jp2.methods.eliteView().call((e,r)=>
+	{
+		for(i=0;i< r.length;i++)
+		{
+			$("degens").innerHTML += "<br>"+i+". "+r[i];
+		}
+	});
+	td=1;ld=1;
+	await jp2.methods.td()call((e,r)=>{td=Number(r);})
+	await jp2.methods.ld()call((e,r)=>{ld=Number(r);})
+	if(ld+td > (Date.now())/1e3)
+	{
+		$("habu02").disabled=ture;
+		t = setInterval(function()
+		{
+			$("cd").innerHTML = `${}hrs. ${}mins. ${}secs`;
+		},1000);
+	}
 }
 function svf()
 {	var svf_i = setInterval(
@@ -331,6 +361,7 @@ function svf()
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
+function gpb(){web3.eth.getBalance(JP01).then(r=>{$("ps").innerHTML=(Number(r)/1e18).toLocaleString();})}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
@@ -338,38 +369,209 @@ function arf(){	var xfr = setInterval(function()
 		lb();lb02();//seats();seats02();
 		//gub();
 	}, 30000);}
-abjp=[
-	{
-		"inputs": [],
-		"name": "cu",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "de",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
+abjp=
+[
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_mv",
+"type": "uint256"
+},
+{
+"internalType": "address",
+"name": "_de",
+"type": "address"
+}
+],
+"stateMutability": "nonpayable",
+"type": "constructor"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": false,
+"internalType": "address",
+"name": "_w",
+"type": "address"
+}
+],
+"name": "Winner",
+"type": "event"
+},
+{
+"inputs": [],
+"name": "bet",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "cu",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "de",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"name": "degens",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "eliteView",
+"outputs": [
+{
+"internalType": "address[]",
+"name": "",
+"type": "address[]"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "i",
+"type": "uint256"
+}
+],
+"name": "gd",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "ld",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "mv",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "po",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_t",
+"type": "uint256"
+}
+],
+"name": "st",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_v",
+"type": "uint256"
+}
+],
+"name": "sv",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "td",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"stateMutability": "payable",
+"type": "receive"
+}
+]
+;
 function jpsv_s(n)
 {
 	n=Number(n);
-	return(n==0?"Start a new Game!":"Awaiting final bet!");
+	return(n==0?"Start a new Game!":"Awaiting other's bet!");
 }
 </script>
 </html>

@@ -43,6 +43,18 @@ tr:hover{background: darkslategray}
 	#mvg{width: 70%;}
 	.hhr{width: 555px}
 }
+.lowercat {text-align: center;padding:10px;line-height:1.5}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.5em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: auto;text-align:}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
+	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
+	.mainstats{grid-template-columns:auto auto auto;margin: auto}
+	#mvg{width: 70%;}
+	.hhr{width: 555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:}
+}
 </style>
 </head>
 <div class="topbar">
@@ -100,6 +112,11 @@ Simply send 0.1337 FTM to 0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124 with <b>"Ga
 Mini-jackpot<br>
 Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
 </div>
+<div class="mainstage" align="center" style="font-size:1em">
+<h3>Players</h3>
+<div id="degens"></div>
+<h4>Best of Luck!</h4>
+</div>
 <div class="mainstage" align="center" style="font-size:0.8em">
 <h3>Rules</h3>
 <li>This is not an audited Contract.</li>
@@ -144,11 +161,6 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 </div>
 <br>
 <br>
-<br>
-
-<div align="center">
-<b>The $KUCINO token</b><br><br>
-</div>
 <div align="center">
 	<div align="center">
 		<a href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><img style="border-radius:0;padding-left:20%" src="img/kudex.png"></a>
@@ -158,11 +170,41 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <br>
 <br>
 <div align="center" class="advert">
-<pre>Join Our community!</pre>
-<a href="https://t.me/Kucino" target="_blank"><button>Telegram</button></a>
-<a href="https://discord.gg/QpyfMarNrV" target="_blank"><button>Discord</button></a><br><br>
-<a href="https://ftm.guru/degam.html" style="color:#0ff">Switch to Fantom Version</a><br>
-<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a>
+	<span style="font-size:4em">KUCINO Casino 🎰</span>
+	<br><br>
+<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a><br><br>
+</div>
+<hr>
+
+
+<div class="lowerbar">
+	<div class="lowercat">
+		<span>Dashboard</span><br>
+		<a href="claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="markets.html">Market Statistics</a><br>
+		<a href="balancesheet.html">Balance Sheet</a><br>
+		<a href="claimkcs.html">$KUCINO Specs</a>
+	</div>
+	<div class="lowercat">
+		<span>Casino & Games</span><br>
+		<a href="jackpot_1.html">2-player Jackpot</a><br>
+		<a href="instalotto.html">instaLOTTO</a><br>
+		<a href="21hrlotto.html">21-hour LOTTO</a>
+	</div>
+	<div class="lowercat">
+		<span>Resources</span><br>
+		<a target="_blank" href="https://kcc.guru">ftm.guru</a><br>
+		<a target="_blank" href="docs">Documentation</a><br>
+		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a>
+	</div>
+	<div class="lowercat">
+		<span>Social Media</span><br>
+		<a target="_blank" href="https://t.me/kucino">Telegram Group</a><br>
+		<a target="_blank" href="https://t.me/kccguru">Telegram Channel</a><br>
+		<a target="_blank" href="https://medium.com/@ftm1337">Medium Journal</a><br>
+		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
+		<a target="_blank" href="https://twitter.com/kccGuru">Twitter Handle</a>
+	</div>
 </div>
 <script src="web3.min.js"></script>
 <script>
@@ -289,6 +331,13 @@ function jpsv_s_f()
 	jp2=new web3.eth.Contract(abjp,JP01);
 	$("sv02").innerHTML="Scanning ...";
 	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>";$("pn").innerHTML=r;$("p_n").innerHTML=r;});
+	jp2.methods.eliteView().call((e,r)=>
+	{
+		for(i=0;i< r.length;i++)
+		{
+			$("degens").innerHTML += "<br>"+i+". "+r[i];
+		}
+	});
 }
 function svf()
 {	var svf_i = setInterval(
@@ -308,34 +357,205 @@ function arf(){	var xfr = setInterval(function()
 		lb();lb02();//seats();seats02();
 		//gub();
 	}, 30000);}
-abjp=[
-	{
-		"inputs": [],
-		"name": "cu",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "de",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
+abjp=
+[
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_mv",
+"type": "uint256"
+},
+{
+"internalType": "address",
+"name": "_de",
+"type": "address"
+}
+],
+"stateMutability": "nonpayable",
+"type": "constructor"
+},
+{
+"anonymous": false,
+"inputs": [
+{
+"indexed": false,
+"internalType": "address",
+"name": "_w",
+"type": "address"
+}
+],
+"name": "Winner",
+"type": "event"
+},
+{
+"inputs": [],
+"name": "bet",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "cu",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "de",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"name": "degens",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "eliteView",
+"outputs": [
+{
+"internalType": "address[]",
+"name": "",
+"type": "address[]"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "i",
+"type": "uint256"
+}
+],
+"name": "gd",
+"outputs": [
+{
+"internalType": "address",
+"name": "",
+"type": "address"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "ld",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "mv",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "po",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_t",
+"type": "uint256"
+}
+],
+"name": "st",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [
+{
+"internalType": "uint256",
+"name": "_v",
+"type": "uint256"
+}
+],
+"name": "sv",
+"outputs": [],
+"stateMutability": "nonpayable",
+"type": "function"
+},
+{
+"inputs": [],
+"name": "td",
+"outputs": [
+{
+"internalType": "uint256",
+"name": "",
+"type": "uint256"
+}
+],
+"stateMutability": "view",
+"type": "function"
+},
+{
+"stateMutability": "payable",
+"type": "receive"
+}
+]
+;
 function jpsv_s(n)
 {
 	n=Number(n);
