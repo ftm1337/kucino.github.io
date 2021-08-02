@@ -36,7 +36,8 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 .fardet span:nth-of-type(5n+2){text-align: left}
 .fardet span:nth-of-type(5n+4){text-align: right}
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
-tr:hover{background: darkslategray}
+tr:hover{background: rgba(0,255,127,0.5);font-weight:bold}
+tr:hover td:nth-child(1){;font-size:1.5em}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
@@ -99,14 +100,7 @@ Available Balance: <span id="usba">?</span> KCS
 		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button><br><br>
 	</div>
 </div>
-<div class="mainstage" align="center" style="display:none">
-<h4>Manual Betting</h4>
-Micro-jackpot<br>
-Simply send 0.1337 FTM to 0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124 with <b>"Gas Limit"</b> of 100000.<br><br>
-Mini-jackpot<br>
-Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
-</div>
-<div class="mainstage" align="center" style="font-size:0.8em">
+<div class="mainstage" align="center" style="font-size:0.9em">
 <h3>Rules</h3>
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
@@ -118,38 +112,44 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <li>Each 3rd entry will begin a new round.</li>
 <li>Yes, we'll make this page look better.</li>
 <li>Transaction costs .00005 KCS at 1 GWei.</li>
+<h4>Manual Betting</h4>
+Simply send 0.0555 KCS to 0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84 with <b>"Gas Limit"</b> of 100000.
 <h4>Best of Luck!</h4>
 </div>
-<div class="mainstage" align="center" style="display:none">
+<div class="mainstage" align="center" style="display:">
 <h2>LEADERBOARD</h2>
 <div  style="overflow-x:auto">
-<h3>4 FTM Mini-Jackpot</h3>
+<h3>2-player Jackpot</h3>
+Double your money & Win 0.111 KCS!
 <table class="mainstage">
 	<thead>
 		<th>#</th>
-		<th>Time Stamp</th>
+		<!--<th>Time Stamp</th>-->
 		<th>Winning Address</th>
 		<th>Tx. Hash</th>
 	</thead>
 	<tbody id="winners">
 	</tbody>
 </table>
-<h3>.4 FTM Micro-Jackpot</h3>
-<table class="mainstage">
-	<thead>
-		<th>#</th>
-		<th>Time Stamp</th>
-		<th>Winning Address</th>
-		<th>Tx. Hash</th>
-	</thead>
-	<tbody id="winners02">
-	</tbody>
-</table>
 </div>
 </div>
 <br>
 <br>
+<div align="center">
+	<div align="center">
+		<a href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><img style="border-radius:0;padding-left:20%" src="img/kudex.png"></a>
+	</div>
+	<span style="font-size:1.5em;text-shadow:2px 0 5px black">KUCINO is officialy listed at KuDEX!</span><br><br>
+</div>
 <br>
+<br>
+<div align="center" class="advert">
+	<span style="font-size:4em">KUCINO Casino 🎰</span>
+	<br><br>
+<a href="dashboard.html" style="font-size:1.2em">Dashboard</a> | <a href="casino.html" style="font-size:1.2em">Casino</a> | <a href="tokenomics.html" style="font-size:1.2em">Tokenomics</a><br><br>
+</div>
+<hr>
+
 
 <div class="lowerbar" align="center">
 	<div align="left" class="lowercat">
@@ -239,7 +239,7 @@ window.addEventListener('load',async function()
 	if(window.ethereum&&Number(window.ethereum.chainId)==321)
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
-	//lb();lb02();arf();
+	lb();arf();
 	jpsv_s_f();gub();svf();
 }, false);
 uac="";
@@ -295,11 +295,14 @@ const JP02="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
 function $(_) {return document.getElementById(_);}
 function lb()
 {
-	return;
-	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
-	r.onload=function(){paintlb(JSON.parse(this.response).result)}
-	r.send();
+	web3.eth.getPastLogs(
+	{
+		"fromBlock":"1390000",
+		"toBlock":"latest",
+		"address":"0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84",
+		"topics":["0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0"],
+	}
+	,(e,r)=>{console.log(r);paintlb(r)})
 }
 function paintlb(d)
 {
@@ -311,43 +314,13 @@ function paintlb(d)
 		N=document.createElement("td");
 		W=document.createElement("td");
 		T=document.createElement("td");
-		D=document.createElement("td");
+		//D=document.createElement("td");
 		N.innerHTML=i+1;
 		W.innerHTML="0x"+(d[i].data).substr(26);
-		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
-		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
+		T.innerHTML=`<b><a href="https://explorer.kcc.io/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		//D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
 		R.append(N);
-		R.append(D);
-		R.append(W);
-		R.append(T);
-		B.append(R);
-	}
-}
-function lb02()
-{
-	return;
-	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
-	r.onload=function(){paintlb02(JSON.parse(this.response).result)}
-	r.send();
-}
-function paintlb02(d)
-{
-	B=$("winners02");
-	B.innerHTML="";
-	for(i=d.length-1;i>=0;i--)
-	{
-		R=document.createElement("tr");
-		N=document.createElement("td");
-		W=document.createElement("td");
-		T=document.createElement("td");
-		D=document.createElement("td");
-		N.innerHTML=i+1;
-		W.innerHTML="0x"+(d[i].data).substr(26);
-		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
-		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
-		R.append(N);
-		R.append(D);
+		//R.append(D);
 		R.append(W);
 		R.append(T);
 		B.append(R);
@@ -372,9 +345,7 @@ function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
-		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
-		lb();lb02();//seats();seats02();
-		//gub();
+		lb();
 	}, 30000);}
 abjp=[
 	{

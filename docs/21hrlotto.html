@@ -1,7 +1,7 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
 <title>🎰 KUCINO : 21hr Lotto - KCC.guru | The GURU Network</title>
-<meta name="description" content="Earn huge KCS rewards with Kucino's Decentralized lotto! Kucino is the first Casino on the Kucoin Community Chain | Powered by The GURU Network">
+<meta name="description" content="21-hour Lotto : Earn huge KCS rewards with Kucino's Decentralized lotto! Kucino is the first Casino on the Kucoin Community Chain | Powered by The GURU Network">
 <meta name="keywords" content="Dice, Coin Flip, Coin Toss,Lotto, jackpot, betting, gambling, on-chain, blockchain, Kucoin Community Chain, KCC, KCS, Decentralized Finance, KUCINO">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -36,7 +36,8 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 .fardet span:nth-of-type(5n+2){text-align: left}
 .fardet span:nth-of-type(5n+4){text-align: right}
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
-tr:hover{background: darkslategray}
+tr:hover{background: rgba(0,255,127,0.5);font-weight:bold}
+tr:hover td:nth-child(1){;font-size:1.5em}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
@@ -84,9 +85,10 @@ Available Balance: <span id="usba">?</span> KCS
 <br>
 <div class="mainstages mainstage" align="center">
 	<span style="font-size:2em;font-weight:bolder">Win <span id="ps">?</span> KCS</span><br>
-		1 Lotto Winner in every 10,000 seconds
+		1 Lotto Winner in every 21 hours!<br>
+		<span id="cd_"></span>
 	<div class="mainstage" style="" align="center">
-		<h2>Kucino 🎰 10k Lotto</h2>
+		<h2>Kucino 🎰 21hr Lotto</h2>
 		<br>
 		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 			<span></span><span>Winning Odds</span>
@@ -122,40 +124,30 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <h3>Rules</h3>
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
-<li><b>Buy tickets to the lotto for 0.01 KCS.<b></li>
-<li><b>Anyone can finish the game at anytime.<b></li>
-<li><b>Finishing Game will declare a Winner.<b></li>
-<li><b>Winner earns the full KCS JackPot Prize.<b></li>
-<li><b>Winnings credited instantly to wallet.<b></li>
+<li><b>Buy tickets to the lotto for 0.01 KCS.</b></li>
+<li><b>Anyone can finish game after 21 hours.</b></li>
+<li><b>Finishing Game will declare a Winner.</b></li>
+<li><b>Winner earns the full KCS JackPot Prize.</b></li>
+<li><b>Winnings credited instantly to wallet.</b></li>
 <li>There's NO house edge but a <b>10% tax.</b></li>
 <li>House is not responsible if you get rekt.</li>
 <li>Yes, we'll make this page look better.</li>
 <li>Transaction costs .00005 KCS at 1 GWei.</li>
 <h4>Best of Luck!</h4>
 </div>
-<div class="mainstage" align="center" style="display:none">
+<div class="mainstage" align="center" style="display:">
 <h2>LEADERBOARD</h2>
 <div  style="overflow-x:auto">
-<h3>4 FTM Mini-Jackpot</h3>
+<h3>2-player Jackpot</h3>
+Double your money & Win 0.111 KCS!
 <table class="mainstage">
 	<thead>
 		<th>#</th>
-		<th>Time Stamp</th>
+		<!--<th>Time Stamp</th>-->
 		<th>Winning Address</th>
 		<th>Tx. Hash</th>
 	</thead>
 	<tbody id="winners">
-	</tbody>
-</table>
-<h3>.4 FTM Micro-Jackpot</h3>
-<table class="mainstage">
-	<thead>
-		<th>#</th>
-		<th>Time Stamp</th>
-		<th>Winning Address</th>
-		<th>Tx. Hash</th>
-	</thead>
-	<tbody id="winners02">
 	</tbody>
 </table>
 </div>
@@ -266,7 +258,7 @@ window.addEventListener('load',async function()
 	if(window.ethereum&&Number(window.ethereum.chainId)==321)
 		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
-	//lb();lb02();arf();
+	lb();arf();
 	jpsv_s_f();gub();gpb();svf();
 }, false);
 uac="";
@@ -321,11 +313,14 @@ JP01 = "0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef";
 function $(_) {return document.getElementById(_);}
 function lb()
 {
-	return;
-	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
-	r.onload=function(){paintlb(JSON.parse(this.response).result)}
-	r.send();
+	web3.eth.getPastLogs(
+	{
+		"fromBlock":"1665400",
+		"toBlock":"latest",
+		"address":"0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef",
+		"topics":["0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0"],
+	}
+	,(e,r)=>{console.log(r);paintlb(r)})
 }
 function paintlb(d)
 {
@@ -337,43 +332,13 @@ function paintlb(d)
 		N=document.createElement("td");
 		W=document.createElement("td");
 		T=document.createElement("td");
-		D=document.createElement("td");
+		//D=document.createElement("td");
 		N.innerHTML=i+1;
 		W.innerHTML="0x"+(d[i].data).substr(26);
-		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
-		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
+		T.innerHTML=`<b><a href="https://explorer.kcc.io/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		//D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
 		R.append(N);
-		R.append(D);
-		R.append(W);
-		R.append(T);
-		B.append(R);
-	}
-}
-function lb02()
-{
-	return;
-	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
-	r.onload=function(){paintlb02(JSON.parse(this.response).result)}
-	r.send();
-}
-function paintlb02(d)
-{
-	B=$("winners02");
-	B.innerHTML="";
-	for(i=d.length-1;i>=0;i--)
-	{
-		R=document.createElement("tr");
-		N=document.createElement("td");
-		W=document.createElement("td");
-		T=document.createElement("td");
-		D=document.createElement("td");
-		N.innerHTML=i+1;
-		W.innerHTML="0x"+(d[i].data).substr(26);
-		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
-		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
-		R.append(N);
-		R.append(D);
+		//R.append(D);
 		R.append(W);
 		R.append(T);
 		B.append(R);
@@ -392,14 +357,15 @@ async function jpsv_s_f()
 		}
 	});
 	td=1;ld=1;
-	await jp2.methods.td()call((e,r)=>{td=Number(r);})
-	await jp2.methods.ld()call((e,r)=>{ld=Number(r);})
+	await jp2.methods.td().call((e,r)=>{td=Number(r);})
+	await jp2.methods.ld().call((e,r)=>{ld=Number(r);})
 	if(ld+td > (Date.now())/1e3)
 	{
-		$("habu02").disabled=ture;
+		$("habu02").disabled=true;
 		t = setInterval(function()
 		{
-			$("cd").innerHTML = `${}hrs. ${}mins. ${}secs`;
+			//$("cd").innerHTML = `${}hrs. ${}mins. ${}secs`;
+			$("cd_").innerHTML = "Last Draw: " + new Date(ld*1000) +"<br>Next Draw: "+ new Date(ld*1000+td*1000)
 		},1000);
 	}
 }
@@ -417,9 +383,7 @@ function gpb(){web3.eth.getBalance(JP01).then(r=>{$("ps").innerHTML=(Number(r)/1
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
-		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
-		lb();lb02();//seats();seats02();
-		//gub();
+		lb();
 	}, 30000);}
 abjp=
 [
