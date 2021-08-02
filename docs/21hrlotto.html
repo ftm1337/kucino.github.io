@@ -120,7 +120,7 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <div id="degens"></div>
 <h4>Best of Luck!</h4>
 </div>
-<div class="mainstage" align="center" style="font-size:0.8em">
+<div class="mainstage" align="center" style="font-size:0.9em">
 <h3>Rules</h3>
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
@@ -133,6 +133,8 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <li>House is not responsible if you get rekt.</li>
 <li>Yes, we'll make this page look better.</li>
 <li>Transaction costs .00005 KCS at 1 GWei.</li>
+<h4>Manual Betting</h4>
+Simply send 0.01 KCS to 0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef with <b>"Gas Limit"</b> of 100000.
 <h4>Best of Luck!</h4>
 </div>
 <div class="mainstage" align="center" style="display:">
@@ -349,13 +351,16 @@ async function jpsv_s_f()
 	jp2=new web3.eth.Contract(abjp,JP01);
 	$("sv02").innerHTML="Scanning ...";
 	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>";$("pn").innerHTML=r;$("p_n").innerHTML=r;});
+	$("degens").innerHTML = "Recounting Attendees..."
 	jp2.methods.eliteView().call((e,r)=>
 	{
+		$("degens").innerHTML = ""
 		for(i=0;i< r.length;i++)
 		{
-			$("degens").innerHTML += "<br>"+i+". "+r[i];
+			$("degens").innerHTML += "<br>"+(i+1)+". "+r[i];
 		}
 	});
+	if(r.length==0){$("degens").innerHTML="Table Empty ..."}
 	td=1;ld=1;
 	await jp2.methods.td().call((e,r)=>{td=Number(r);})
 	await jp2.methods.ld().call((e,r)=>{ld=Number(r);})
