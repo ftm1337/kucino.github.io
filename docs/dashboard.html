@@ -425,7 +425,7 @@ function ck()
 {
 	K.methods.claimKCSReward().send({from:window.ethereum.selectedAddress},(e,r)=>{
 		console.log("claim:",r);
-		$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcs.io/tx/${r}">Check status here.</a></b>`;
+		if(r!=undefined){$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcc.io/tx/${r}">Check status here.</a></b>`;}
 	})
 }
 </script>
