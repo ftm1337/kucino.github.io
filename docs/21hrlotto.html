@@ -259,8 +259,7 @@ Double your money & Win 0.111 KCS!
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==321)
-		{web3 = new Web3(web3.currentProvider)}
+	if(window.ethereum&&Number(window.ethereum.chainId)==321){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	lb();arf();
 	jpsv_s_f();gub();gpb();svf();
@@ -273,6 +272,8 @@ async function cw()
 	uac = UAC[0];
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
 	web3.eth.Contract.defaultAccount=uac;
+	window.ethereum.enable();
+	gub();
 }
 async function hard01()
 {
@@ -312,7 +313,7 @@ async function soft01()
 	}
 	catch(e){console.log(e)}
 }
-JP01 = "0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef";
+JP01 = "0xfc762a7Ce7aB2512fb9c58A5aa4CDd977CAF97EF";
 //$("ca").innerHTML=CA;
 function $(_) {return document.getElementById(_);}
 function lb()
@@ -321,7 +322,7 @@ function lb()
 	{
 		"fromBlock":"1665400",
 		"toBlock":"latest",
-		"address":"0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef",
+		"address":"0xfc762a7Ce7aB2512fb9c58A5aa4CDd977CAF97EF",
 		"topics":["0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0"],
 	}
 	,(e,r)=>{console.log(r);paintlb(r)})

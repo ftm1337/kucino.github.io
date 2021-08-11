@@ -237,10 +237,10 @@ May the <code>0xD1cE</code> be with you!<br><span style="font-size:3em">🎰</sp
 
 <script src="web3.min.js"></script>
 <script>
+
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==321)
-		{web3 = new Web3(web3.currentProvider)}
+	if(window.ethereum&&Number(window.ethereum.chainId)==321){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	getStats();
 	if(window.ethereum&&window.ethereum.selectedAddress!=null){cw()}

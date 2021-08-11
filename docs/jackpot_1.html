@@ -238,8 +238,7 @@ Double your money & Win 0.111 KCS!
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==321)
-		{web3 = new Web3(web3.currentProvider)}
+	if(window.ethereum&&Number(window.ethereum.chainId)==321){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	lb();arf();
 	jpsv_s_f();gub();svf();
@@ -252,6 +251,8 @@ async function cw()
 	uac = UAC[0];
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
 	web3.eth.Contract.defaultAccount=uac;
+	window.ethereum.enable();
+	gub();
 }
 async function hard01()
 {
