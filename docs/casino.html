@@ -27,6 +27,14 @@ margin:5%;border-radius: 15px;border:aqua 2px solid}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:#0f7 2px solid;}
 .c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
 .mainstage button{margin-bottom: 5px}
+.et{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:right}
+.ot{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:left}
+.mte{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.mto{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.uo{background: linear-gradient(to bottom,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.tile{padding: 10px;display: grid;}
+.tile div{margin:10px}
+div .mainstage:nth-child(4){padding: 0px;}
 .advert
 {
 background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));padding:15px;
@@ -75,63 +83,37 @@ tr:hover td:nth-child(1){;font-size:1.5em}
 <br>
 <div align="center">
 <h1>Welcome to KUCINO</h1>
-<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
-<br>
-Available Balance: <span id="usba">?</span> KCS
+
 <br>
 <br>
-<br>
-</div>
-<br>
-<div class="mainstages mainstage" align="center">
-	<div class="mainstage" style="" align="center">
-		<h2>🎰 0.11 KCS</h2>
-		<h3>2-player Jackpot</h3>
+<div class="mainstage" align="center" style="font-size:">
+	<div class="mte uo" align="center">
 		<br>
-		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
-			<span></span><span>Winning Odds</span>
-			<span></span><span>1/2</span><span></span>
-			<span></span><span>Stake</span>
-			<span></span><span>0.0555 KCS</span><span></span>
-		</div>
+		<b style="font-size:1.5em;">The Kucino Casino</b>
 		<br>
-		<span></span><span>Status:</span>
-		<span></span><span id="sv02">Scanning ...</span><span></span>
-		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button><br><br>
+		<i>First ever decentralizd gaming platform on Kucoin Chain.</i><br>
+		<br>3 innovative Gambles</b>
+		<br>200+ Players
+		<br>Round-the-Clock
+		<br><br>
 	</div>
-</div>
-<div class="mainstage" align="center" style="font-size:0.9em">
-<h3>Rules</h3>
-<li>This is not an audited Contract.</li>
-<li>Spend only what you're willing to lose.</li>
-<li>A winner is drawn after 2 entries.</li>
-<li>Each jackpot entry costs 0.0555 KCS.</li>
-<li>There's NO house edge but a <b>10% tax.</b></li>
-<li>House is not responsible if you get rekt.</li>
-<li>There can be only 2 entries each round.</li>
-<li>Each 3rd entry will begin a new round.</li>
-<li>Yes, we'll make this page look better.</li>
-<li>Transaction costs .00005 KCS at 1 GWei.</li>
-<h4>Manual Betting</h4>
-Simply send 0.0555 KCS to 0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84 with <b>"Gas Limit"</b> of 100000.
-<h4>Best of Luck!</h4>
-</div>
-<div class="mainstage" align="center" style="display:">
-<h2>LEADERBOARD</h2>
-<div  style="overflow-x:auto">
-<h3>2-player Jackpot</h3>
-Double your money & Win 0.111 KCS!
-<table class="mainstage">
-	<thead>
-		<th>#</th>
-		<!--<th>Time Stamp</th>-->
-		<th>Winning Address</th>
-		<th>Tx. Hash</th>
-	</thead>
-	<tbody id="winners">
-	</tbody>
-</table>
-</div>
+	<a href="jackpot_1.html"><div class="tile ot">
+		<div style="font-size:2em;color:"><i>2-player Jackpot,<b> Doubles your KCS!</b></i></div>
+		<div style="font-size:1.25em;color:">Bet against a friend or a random online player, one-on-one, for a chance to beat your opponent and Double your bet! <br><i>(Pot Limit : 0.11 KCS)</i></div>
+	</div></a>
+	<a href="instalotto.html"><div class="tile et">
+		<div style="font-size:2em;color:"><i>The instaLOTTO, <b>on-demand winners!</b></i></div>
+		<div style="font-size:1.25em;color:">A competetive game of Lotto where any number of players can buy unlimited tickets for just 0.01 KCS. Winning ticket is drawn on-demand: totally permissionless, and the winner takes home the entire Raise!
+		<br><i>(Pot Limit : Unlimited)</i></div>
+	</div></a>
+	<a href="21hrlotto.html"><div class="tile ot">
+		<div style="font-size:2em;color:"><i>21-hour Lotto, <b>Win KCS everyday!</b></i></div>
+		<div style="font-size:1.25em;color:">This special Daily can be contested by purchaing an entry ticket for 0.01 KCS. Winning ticket can be drawn only after a minimum of 21hrs being elapsesd after the first entry. Permissionles, decentralized and even smart contracts can play it as a yield strategy!
+		<br><i>(Pot Limit: 777 KCS)</i></div>
+	</div></a>
+	<div class="mte uo" align="center">
+	<i>More Games are under development!</i>
+	</div>
 </div>
 <br>
 <br>
@@ -234,154 +216,4 @@ Double your money & Win 0.111 KCS!
 	<div class="lowercat">
 	</div>
 </div>
-<script src="web3.min.js"></script>
-<script>
-window.addEventListener('load',async function()
-{
-	if(window.ethereum&&Number(window.ethereum.chainId)==321){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
-	lb();arf();
-	jpsv_s_f();gub();svf();
-}, false);
-uac="";
-async function cw()
-{
-	if(!(Number(window.ethereum.chainId)==321)){$("cw").innerHTML="Wrong network";return(0)}
-	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
-	uac = UAC[0];
-	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
-	web3.eth.Contract.defaultAccount=uac;
-	window.ethereum.enable();
-	gub();
-}
-async function hard01()
-{
-	try
-	{
-		await cw();
-		web3.eth.sendTransaction
-		({
-			from: window.ethereum.selectedAddress,
-			to: JP01,
-			value: '555000000000000000',
-			gas: '100000'
-		})
-		.then((o)=>
-		{
-			console.log(o);
-		})
-	}
-	catch(e){console.log(e)}
-}
-async function hard02()
-{
-	try
-	{
-		await cw();
-		web3.eth.sendTransaction
-		({
-			from: window.ethereum.selectedAddress,
-			to: JP02,
-			value: '55500000000000000',
-			gas: '100000'
-		})
-		.then((o)=>
-		{
-			console.log(o);
-		})
-	}
-	catch(e){console.log(e)}
-}
-const JP01="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
-const JP02="0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84";
-//$("ca").innerHTML=CA;
-function $(_) {return document.getElementById(_);}
-function lb()
-{
-	web3.eth.getPastLogs(
-	{
-		"fromBlock":"1390000",
-		"toBlock":"latest",
-		"address":"0x9259BeA99062B04BFC48c17DC15C01F1Ea85Dd84",
-		"topics":["0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0"],
-	}
-	,(e,r)=>{console.log(r);paintlb(r)})
-}
-function paintlb(d)
-{
-	B=$("winners");
-	B.innerHTML="";
-	for(i=d.length-1;i>=0;i--)
-	{
-		R=document.createElement("tr");
-		N=document.createElement("td");
-		W=document.createElement("td");
-		T=document.createElement("td");
-		//D=document.createElement("td");
-		N.innerHTML=i+1;
-		W.innerHTML="0x"+(d[i].data).substr(26);
-		T.innerHTML=`<b><a href="https://explorer.kcc.io/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
-		//D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
-		R.append(N);
-		//R.append(D);
-		R.append(W);
-		R.append(T);
-		B.append(R);
-	}
-}
-function jpsv_s_f()
-{
-	jp2=new web3.eth.Contract(abjp,JP02);
-	$("sv02").innerHTML="Scanning ...";
-	jp2.methods.cu().call((e,r)=>{$("sv02").innerHTML="<b>"+jpsv_s(r)+"</b>"});
-}
-function svf()
-{	var svf_i = setInterval(
-	function()
-	{
-		jpsv_s_f();
-		gub();
-	}, 30000);
-}
-function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
-			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
-function arf(){	var xfr = setInterval(function()
-	{
-		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
-		lb();
-	}, 30000);}
-abjp=[
-	{
-		"inputs": [],
-		"name": "cu",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "de",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
-function jpsv_s(n)
-{
-	n=Number(n);
-	return(n==0?"Start a new Game!":"Awaiting final bet!");
-}
-</script>
 </html>
