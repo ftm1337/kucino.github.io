@@ -362,8 +362,8 @@ async function jpsv_s_f()
 		{
 			$("degens").innerHTML += "<br>"+(i+1)+". "+r[i];
 		}
-	});
 	if(r.length==0){$("degens").innerHTML="Table Empty ..."}
+	});
 	td=1;ld=1;
 	await jp2.methods.td().call((e,r)=>{td=Number(r);})
 	await jp2.methods.ld().call((e,r)=>{ld=Number(r);})
