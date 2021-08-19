@@ -242,7 +242,8 @@ window.addEventListener('load',async function()
 	if(window.ethereum&&Number(window.ethereum.chainId)==321){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc-mainnet.kcc.network")}
 	lb();arf();
-	jpsv_s_f();gub();svf();
+	//jpsv_s_f();
+	gub();svf();
 }, false);
 uac="";
 async function cw()
@@ -265,7 +266,7 @@ async function hard01()
 			from: window.ethereum.selectedAddress,
 			to: JP01,
 			value: '555000000000000000',
-			gas: '100000'
+			gas: '500000'
 		})
 		.then((o)=>
 		{
@@ -348,7 +349,7 @@ function svf()
 	{
 		jpsv_s_f();
 		gub();
-	}, 30000);
+	}, 15000);
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
@@ -385,10 +386,12 @@ abjp=[
 		"type": "function"
 	}
 ];
+/*
 function jpsv_s(n)
 {
 	n=Number(n);
 	return(n==0?"Start a new Game!":"Awaiting final bet!");
 }
+*/
 </script>
 </html>
