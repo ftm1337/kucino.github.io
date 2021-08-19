@@ -98,7 +98,7 @@ Available Balance: <span id="usba">?</span> KCS
 		Heads😃? Or Tails!🙃
 		<!--<span></span><span>Status:</span>
 		<span></span><span id="sv02">Scanning ...</span><span></span>-->
-		<br><button class="farmcontrols" id="habu01" onclick="hard02()">Head 😃</button>
+		<br><button class="farmcontrols" id="habu01" onclick="hard01()">Head 😃</button>
 		<button class="farmcontrols" id="habu02" onclick="hard02()">🙃 Tails</button><br><br>
 	</div>
 </div>
@@ -265,7 +265,7 @@ async function hard01()
 		({
 			from: window.ethereum.selectedAddress,
 			to: JP01,
-			value: '555000000000000000',
+			value: '10000000000000000',
 			gas: '500000'
 		})
 		.then((o)=>
@@ -285,7 +285,7 @@ async function hard02()
 			from: window.ethereum.selectedAddress,
 			to: JP02,
 			value: '10000000000000000',
-			gas: '100000'
+			gas: '500000'
 		})
 		.then((o)=>
 		{
