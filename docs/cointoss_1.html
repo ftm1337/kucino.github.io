@@ -37,17 +37,19 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 .fardet span:nth-of-type(5n+4){text-align: right}
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
 tr:hover{background: rgba(0,255,127,0.5);font-weight:bold}
-tr:hover td:nth-child(1){;font-size:1.5em}
+#allp td{text-align: right;}
+#allp td:nth-child(3){font-weight: bolder}
+#allp td:nth-child(5){font-family: monospace}
+.lowercat {text-align: left;padding:10px;line-height:1.5}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.5em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: auto;text-align:}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
 	#mvg{width: 70%;}
 	.hhr{width: 555px}
 }
-.lowercat {text-align: left;padding:10px;line-height:1.5}
-.lowercat a{text-decoration-line: none}
-.lowercat span{font-size: 1.5em; font-weight:bold}
-.lowerbar{display: grid;grid-template-columns: auto;text-align:}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
@@ -117,10 +119,26 @@ Simply send 0.01 KCS to 0x671110d1Bab1FCaC9180F8Bf992dE1e4C991c90d with <b>"Gas 
 <h4>Best of Luck!</h4>
 </div>
 <div class="mainstage" align="center" style="display:">
-<h2>LEADERBOARD</h2>
+<h2>Single-Player CoinToss</h2>
+Double your money & Win 0.02 KCS!<br><br>
+<br><span id="loading"></span>
 <div  style="overflow-x:auto">
-<h3>Single-Player CoinToss</h3>
-Double your money & Win 0.02 KCS!
+<h3>LEADERBOARD</h3>
+<table class="mainstage">
+	<thead>
+		<th onclick="sortit(0,'allp')">Earned⇅</th>
+		<!--<th>Time Stamp</th>-->
+		<th onclick="sortit(1,'allp')">Luckiness⇅</th>
+		<th onclick="sortit(2,'allp')">Wins⇅</th>
+		<th onclick="sortit(3,'allp')">Tries⇅</th>
+		<th onclick="sortit(4,'allp')">Player's Address⇅</th>
+	</thead>
+	<tbody id="allp">
+	</tbody>
+</table>
+</div>
+<div  style="overflow-x:auto">
+<h3>GAME HISTORY</h3>
 <table class="mainstage">
 	<thead>
 		<th>#</th>
@@ -310,9 +328,50 @@ function lb()
 		"address":"0x671110d1Bab1FCaC9180F8Bf992dE1e4C991c90d",
 		"topics":["0xfa533acbd0123b56fe7bde351b923c832f21d2288f926bc0f67a2d3f118758a7"],
 	}
-	,(e,r)=>{paintlb(r)})
+	,(e,r)=>{paintlb(r);})
 }
-function paintlb(d)
+function paintlb(d){paintwh(d);paintph(d);$("loading").innerHTML="";}
+function paintwh(d)
+{
+	f=[];for(i=0;i< d.length;i++){f.push([(d[i].data).substr(-1)=="1"?Number(1):Number(-1),(d[i].data).substr(26,40)])}
+	f1=f;f3 = {};
+	for(i=0;i< f1.length;i++){
+		if(!(f3[f1[i][1]])){
+			f3[f1[i][1]]=[f1[i][0],1,f1[i][0]==1?1:0]}
+		else{f3[f1[i][1]]=[f3[f1[i][1]][0]+f1[i][0],f3[f1[i][1]][1]+1,f1[i][0]==1?f3[f1[i][1]][2]+=1:f3[f1[i][1]][2]]}}
+	for(i=0;i< f3.length;i++){f3[1]*=0.01}
+	for(i=0;i< Object.keys(f3).length;i++){console.log("player:",Object.keys(f3)[i],"Winnings:",f3[Object.keys(f3)[i]][0]*0.01,"Attempts:",f3[Object.keys(f3)[i]][1],"Won:",f3[Object.keys(f3)[i]][2])}
+	B=$("allp");
+	B.innerHTML="";
+	for(i=0;i< Object.keys(f3).length;i++)
+	{
+		R=document.createElement("tr");
+		//N=document.createElement("td");
+		E=document.createElement("td");
+		L=document.createElement("td");
+		W=document.createElement("td");
+		G=document.createElement("td");
+		P=document.createElement("td");
+		//N.innerHTML=i+1;
+		E.innerHTML=(f3[Object.keys(f3)[i]][0]*0.01< 0)?
+			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]*0.01}</span>`:
+			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]*0.01}</span>`;
+		L.innerHTML=(f3[Object.keys(f3)[i]][2]/f3[Object.keys(f3)[i]][1]*100).toFixed(3) +"%";
+		W.innerHTML=f3[Object.keys(f3)[i]][2];
+		G.innerHTML=f3[Object.keys(f3)[i]][1];
+		P.innerHTML=Object.keys(f3)[i];
+		//R.append(N);
+		R.append(E);
+		R.append(L);
+		R.append(W);
+		R.append(G);
+		R.append(P);
+		B.append(R);
+	}
+	sortit(0,"allp")
+	sortit(0,"allp")
+}
+function paintph(d)
 {
 	B=$("winners");
 	B.innerHTML="";
@@ -358,7 +417,7 @@ function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
 function arf(){	var xfr = setInterval(function()
 	{
-		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
+		$("loading").innerHTML="RELOADING...";
 		lb();
 	}, 30000);}
 abjp=[
@@ -396,5 +455,43 @@ function jpsv_s(n)
 	return(n==0?"Start a new Game!":"Awaiting final bet!");
 }
 */
+function sortit(n,wt) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById(wt);
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent).replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent).replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+}
 </script>
 </html>
