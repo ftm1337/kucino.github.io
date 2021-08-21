@@ -289,7 +289,7 @@ async function hard01()
 		})
 		.then((o)=>
 		{
-			console.log(o);
+			//console.log(o);
 			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 0.02 KCS! 🥳")
 		})
 	}
@@ -309,7 +309,7 @@ async function hard02()
 		})
 		.then((o)=>
 		{
-			console.log(o);
+			//console.log(o);
 			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 0.02 KCS! 🥳")
 		})
 	}
@@ -340,7 +340,7 @@ function paintwh(d)
 			f3[f1[i][1]]=[f1[i][0],1,f1[i][0]==1?1:0]}
 		else{f3[f1[i][1]]=[f3[f1[i][1]][0]+f1[i][0],f3[f1[i][1]][1]+1,f1[i][0]==1?f3[f1[i][1]][2]+=1:f3[f1[i][1]][2]]}}
 	for(i=0;i< f3.length;i++){f3[1]*=0.01}
-	for(i=0;i< Object.keys(f3).length;i++){console.log("player:",Object.keys(f3)[i],"Winnings:",f3[Object.keys(f3)[i]][0]*0.01,"Attempts:",f3[Object.keys(f3)[i]][1],"Won:",f3[Object.keys(f3)[i]][2])}
+	//for(i=0;i< Object.keys(f3).length;i++){console.log("player:",Object.keys(f3)[i],"Winnings:",f3[Object.keys(f3)[i]][0]*0.01,"Attempts:",f3[Object.keys(f3)[i]][1],"Won:",f3[Object.keys(f3)[i]][2])}
 	B=$("allp");
 	B.innerHTML="";
 	for(i=0;i< Object.keys(f3).length;i++)
@@ -359,7 +359,7 @@ function paintwh(d)
 		L.innerHTML=(f3[Object.keys(f3)[i]][2]/f3[Object.keys(f3)[i]][1]*100).toFixed(3) +"%";
 		W.innerHTML=f3[Object.keys(f3)[i]][2];
 		G.innerHTML=f3[Object.keys(f3)[i]][1];
-		P.innerHTML=Object.keys(f3)[i];
+		P.innerHTML="0x"+Object.keys(f3)[i];
 		//R.append(N);
 		R.append(E);
 		R.append(L);
