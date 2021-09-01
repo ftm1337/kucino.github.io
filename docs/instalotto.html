@@ -143,6 +143,7 @@ Double your money & Win 0.111 KCS!
 <table class="mainstage">
 	<thead>
 		<th>#</th>
+		<th>Prize</th>
 		<!--<th>Time Stamp</th>-->
 		<th>Winning Address</th>
 		<th>Tx. Hash</th>
@@ -325,9 +326,9 @@ function lb()
 		"address":"0x19d0480022eaf3e4E25472efEA9eeba372c9F35f",
 		"topics":["0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0"],
 	}
-	,(e,r)=>{console.log(r);paintlb(r)})
+	,(e,r)=>{paintlb(r)})
 }
-function paintlb(d)
+async function paintlb(d)
 {
 	B=$("winners");
 	B.innerHTML="";
@@ -338,12 +339,18 @@ function paintlb(d)
 		W=document.createElement("td");
 		T=document.createElement("td");
 		//D=document.createElement("td");
+		A=document.createElement("td");
 		N.innerHTML=i+1;
-		W.innerHTML="0x"+(d[i].data).substr(26);
+		W.innerHTML="<code>0x"+(d[i].data).substr(26)+"</code>";
 		T.innerHTML=`<b><a href="https://explorer.kcc.io/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
 		//D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
+
+		await web3.eth.getBalance(JP01, d[i].blockNumber-1)
+			.then(r=>{A.innerHTML
+				=`<span style="color:aqua;font-weight:bold">+${(r/1e18)} KCS`});
 		R.append(N);
 		//R.append(D);
+		R.append(A);
 		R.append(W);
 		R.append(T);
 		B.append(R);
@@ -371,7 +378,7 @@ function svf()
 	{
 		jpsv_s_f();
 		gub();
-	}, 30000);
+	}, 100000);
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
