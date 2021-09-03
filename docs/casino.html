@@ -27,14 +27,6 @@ margin:5%;border-radius: 15px;border:aqua 2px solid}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:#0f7 2px solid;}
 .c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
 .mainstage button{margin-bottom: 5px}
-.et{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:right}
-.ot{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:left}
-.mte{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
-.mto{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
-.uo{background: linear-gradient(to bottom,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
-.tile{padding: 10px;display: grid;}
-.tile div{margin:10px}
-div .mainstage:nth-child(4){padding: 0px;}
 .advert
 {
 background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));padding:15px;
@@ -44,13 +36,24 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 .fardet span:nth-of-type(5n+2){text-align: left}
 .fardet span:nth-of-type(5n+4){text-align: right}
 td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
-tr:hover{background: rgba(0,255,127,0.5);font-weight:bold}
-tr:hover td:nth-child(1){;font-size:1.5em}
+tr:hover{background: darkslategray}
+html, body{padding: 0;margin: 0}
+.et{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:right}
+.ot{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:left}
+.mte{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.mto{background: linear-gradient(to left,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.uo{background: linear-gradient(to bottom,rgba(0,255,127,0.5),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+.tile{padding: 10px;display: grid;}
+.tile div{margin:10px}
+.cdt{background: linear-gradient(to right,rgba(0,255,127,0.5),rgba(1,240,255,0.5));border:2px solid #1ea; font-size:2em}
+.CDT{display: grid;grid-template-columns: auto 20% 1% 20% 1% 20% auto;padding: }
+div .mainstage:nth-child(4),div .mainstage:nth-child(7){padding: 0px;}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:auto;max-width: 50%;margin: auto}
 	.mainstages{grid-template-columns:auto;max-width: 50%;margin: auto}
 	#mvg{width: 70%;}
 	.hhr{width: 555px}
+  .CDT{display: grid;grid-template-columns: auto 10% 1% 10% 1% 10% auto;padding: }
 }
 .lowercat {text-align: left;padding:10px;line-height:1.5}
 .lowercat a{text-decoration-line: none}
@@ -64,6 +67,26 @@ tr:hover td:nth-child(1){;font-size:1.5em}
 	.hhr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 }
+.gmul{border:1px solid;border-radius: 50%;	padding: 4px;margin: 0 0 0 4px;font-size: 0.8em;background: linear-gradient(225deg, rgba(0,255,0,0.5), rgba(0,0,255,0.5))}
+
+.maincards{grid-template-columns:auto ;margin: auto;display:grid;}
+.maincard{margin: calc(min(25px,10%));padding:10px;border : 1px aqua solid;
+	border-radius: 7px;
+	background: linear-gradient(45deg, rgba(0,255,0,0.125), rgba(0,0,255,0.125));
+	width: ;
+	margin: 10px;padding:10px;border : 1px aqua solid;
+	text-align:left
+}
+.maincard hr{border: 1px solid aqua}
+.maincard:hover{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: linear-gradient(-127deg, rgba(0,255,0,0.125), rgba(0,0,255,0.125)); ;border:#0f7 1px solid;position:relative;top:-4px}
+
+@media(min-width:641px){
+	.maincards{grid-template-columns:50% 50%;margin: auto}
+}
+@media(min-width:1024px){
+	.maincards{grid-template-columns:33% 33% 33%;margin: auto}
+}
+
 </style>
 </head>
 <div class="topbar">
@@ -84,20 +107,22 @@ tr:hover td:nth-child(1){;font-size:1.5em}
 <h1>Welcome to KUCINO</h1>
 <b></b>
 <b></b>
-<div class="mainstage" align="center" style="font-size:">
+<div class="mainstage" align="center" style="font-size:1.2em;padding:0">
 	<div class="mte uo" align="center">
 		<br>
-		<b><span style="font-size:1.5em;">The Kucino Casino</span>
+		<b><span style="font-size:1.25em;">The Kucino Casino</span>
 		<br>
 		<i>First ever decentralizd gaming platform on Kucoin Chain.</i><br>
 		<br>Fair & Secure
-		<br>Decentralized
-		<br>4 innovative Gambles
-		<br>Played 420+ Times
-		<br>Round-the-Clock
+		<br>100% Decentralized
+		<br>7+ innovative Games
+		<br>Played 1000s of Times
+		<br>Round-the-Clock, 1440x365
+		<br>Full On-chain Game History
+		<br>Real-Time Leaderboard
 		</b>
 		<br><br>
-	</div>
+	</div><!--
 	<a href="cointoss_1.html"><div class="tile et">
 		<div style="font-size:2em;color:"><i>Single-Player CoinToss,<b> Double or Nothing!</b></i></div>
 		<div style="font-size:1.25em;color:">Stake 0.01 KCS to our Smart Contract and get back 2x 0.01 = 0.02 KCS on winning! Be careful, a coin has two sides!<br><i>(Pot Limit : 0.02 KCS)</i></div>
@@ -115,9 +140,93 @@ tr:hover td:nth-child(1){;font-size:1.5em}
 		<div style="font-size:2em;color:"><i>21-hour Lotto, <b>Win KCS everyday!</b></i></div>
 		<div style="font-size:1.25em;color:">This special Daily can be contested by purchaing an entry ticket for 0.01 KCS. Winning ticket can be drawn only after a minimum of 21hrs being elapsesd after the first entry. Permissionles, decentralized and even smart contracts can play it as a yield strategy!
 		<br><i>(Pot Limit: 777 KCS)</i></div>
-	</div></a>
+	</div></a>-->
+	<br>
+	<div class="maincards">
+		<a href="cointoss_1.html"><div class="maincard">
+			<span style="font-size:1.5em"><span class="gmul">2x</span> KCS Coin-Toss</span>
+			<hr>
+			<i>Single-Player CoinToss,<b> Double or Nothing!</b></i><br><br>
+			⇨ Classic Heads or Tails: Win 2x!<br>
+			⇨ Single-player & non-stop.<br>
+			⇨ Min. bet = o.01 KCS<br>
+			<br>
+			Stake 0.01 KCS to our Smart Contract and get back 2x 0.01 = 0.02 KCS on winning! Be careful, a coin has two sides ..<br>
+			<br>
+			<div align="center">
+				<button style="font-size:1.25em">Play on KCC</button>
+			</div>
+		</div></a>
+		<a href="jackpot_1.html"><div class="maincard">
+			<span style="font-size:1.5em"><span class="gmul">2x</span> P vs P: KCS Jackpot</span>
+			<hr>
+			<i>2-player Jackpot,<b> Last man standing!</b></i><br><br>
+			⇨ Challenge your friends or battle strangers!<br>
+			⇨ 2-player game, Head-to-Head<br>
+			⇨ Min. bet = o.01 KCS<br>
+			<br>
+			Bet against a friend or a random online player, one-on-one, for a chance to beat your opponent and Double your bet!<br>
+			<br>
+			<div align="center">
+				<button style="font-size:1.25em">Play on KCC</button>
+			</div>
+		</div></a>
+		<a href="instalotto.html"><div class="maincard">
+			<span style="font-size:1.5em"><span class="gmul">∞x</span> The instaLOTTO</span>
+			<hr>
+			<i>Traditional Lotto, <b>on-demand winners!</b></i><br><br>
+			⇨ First No-Wait instant Result Lotto<br>
+			⇨ MMO Lotto, but Decentralized<br>
+			⇨ Min. bet = o.01 KCS<br>
+			<br>
+			Get tickets, one or more, and one lucky winner takes home the JackPot. Anyone can end betting & initiate winner declaration, anytime!<br>
+			<br>
+			<div align="center">
+				<button style="font-size:1.25em">Play on KCC</button>
+			</div>
+		</div></a>
+		<a href="https://ftm.guru/cointoss_1.html"><div class="maincard">
+			<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
+			<hr>
+			<i>Classic Heads or Tails: Win 2x!<br>
+			Single-player & non-stop.<br>
+			Min. bet = o.1 FTM</i>
+			<br><br>
+			<div align="center">
+				<button style="font-size:1.25em">Play on Opera</button>
+			</div>
+		</div></a>
+		<a href="https://ftm.guru/degam.html"><div class="maincard">
+			<span style="font-size:1.5em"><span class="gmul">3x</span> Mini Jackpot</span>
+			<hr>
+			<i>Enter Jackpot, win 4 FTM!<br>
+			Played against 2 opponents.<br>
+			Min. bet = 1.337 FTM</i>
+			<br><br>
+			<div align="center">
+				<button style="font-size:1.25em">Play on Opera</button>
+			</div>
+		</div></a>
+		<a href="https://ftm.guru/degam.html"><div class="maincard">
+			<span style="font-size:1.5em"><span class="gmul">3x</span> Micro Jackpot</span>
+			<hr>
+			<i>Enter Jackpot, win .4 FTM!<br>
+			Played against 2 opponents.<br>
+			Min. bet = o.1337 FTM</i>
+			<br><br>
+			<div align="center">
+				<button style="font-size:1.25em">Play on Opera</button>
+			</div>
+		</div></a>
+	</div>
+	<br>
 	<div class="mte uo" align="center">
+	<br>
 	<i>More Games are under development!</i>
+	<br>
+	<br>
+	<div style="font-size:1.25em;display:none">Explore all titles ↗</div>
+	<br>
 	</div>
 </div>
 <br>
@@ -126,7 +235,7 @@ tr:hover td:nth-child(1){;font-size:1.5em}
 	<div align="center">
 		<a href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank"><img style="border-radius:0;padding-left:20%" src="img/kudex.png"></a>
 	</div>
-	<span style="font-size:1.5em;text-shadow:2px 0 5px black">KUCINO is officialy listed at KuDEX!</span><br><br>
+	<span style="font-size:1.5em;text-shadow:2px 0 5px black">$KUCINO is officialy listed at KuDEX!</span><br><br>
 </div>
 <br>
 <br>
