@@ -549,7 +549,7 @@ function farm_1_f_approve()
 	try
 	{
 		var conAdd = KUD;
-		theCon = new web3.eth.Contract(abbrove, pairadd);
+		theCon = new web3.eth.Contract(abbrove, JP02);
 		theCon.methods.approve(JP01,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);}
@@ -560,7 +560,7 @@ function farm_1_f_revoke()
 	try
 	{
 		var conAdd = KUD;
-		theCon = new web3.eth.Contract(abbrove, pairadd);
+		theCon = new web3.eth.Contract(abbrove, JP02);
 		theCon.methods.approve(JP01,"0").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);}
@@ -570,9 +570,9 @@ function farm_1_f_chappro()
 {
 	try
 	{
-		var conAdd = pairadd;
+		var conAdd = JP02;
 		theCon = new web3.eth.Contract(abbrove, conAdd);
-		theCon.methods.allowance(window.ethereum.selectedAddress,f_1_add).call
+		theCon.methods.allowance(window.ethereum.selectedAddress,JP01).call
 		(
 			{from:window.ethereum.selectedAddress},(e, r) =>
 			{
