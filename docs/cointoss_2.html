@@ -520,7 +520,7 @@ function farm_1_f_approve()
 		theCon = new web3.eth.Contract(abbrove, pairadd);
 		theCon.methods.approve(JP01,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e);}
 }
 
 function farm_1_f_revoke()
@@ -531,7 +531,7 @@ function farm_1_f_revoke()
 		theCon = new web3.eth.Contract(abbrove, pairadd);
 		theCon.methods.approve(JP01,"0").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e);}
 }
 
 function farm_1_f_chappro()
