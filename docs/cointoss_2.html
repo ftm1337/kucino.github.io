@@ -79,7 +79,10 @@ tr:hover{background: rgba(0,255,127,0.5);font-weight:bold}
 <h1>Welcome to KUCINO</h1>
 <button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
 <br>
-Available Balance: <span id="usba">?</span> KCS
+Available Balance:
+<br><span id="usba">?</span> KCS
+<br><span id="usba1">?</span> KUCINO
+<br><span id="usba2">?</span> KUD
 <br>
 <br>
 <br>
@@ -410,10 +413,20 @@ function svf()
 	{
 		//jpsv_s_f();
 		gub();
+		gubt();
 	}, 15000);
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}}
+function gubt()
+{
+	t1= new web3.eth.Contract(ab1,KUCINO);
+	t1.methods.balanceOf(window.ethereum.selectedAddress).call()
+		.then(r=>{$("usba1").innerHTML=Number(r)/1e18;})}
+	t2= new web3.eth.Contract(ab1,KUD);
+	t2.methods.balanceOf(window.ethereum.selectedAddress).call()
+		.then(r=>{$("usba2").innerHTML=Number(r)/1e18;})}
+}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("loading").innerHTML="RELOADING...";
