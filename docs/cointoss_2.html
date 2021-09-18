@@ -422,10 +422,10 @@ function gubt()
 {
 	t1= new web3.eth.Contract(ab1,KUCINO);
 	t1.methods.balanceOf(window.ethereum.selectedAddress).call()
-		.then(r=>{$("usba1").innerHTML=Number(r)/1e18;})}
+		.then(r=>{$("usba1").innerHTML=Number(r)/1e18;})
 	t2= new web3.eth.Contract(ab1,KUD);
 	t2.methods.balanceOf(window.ethereum.selectedAddress).call()
-		.then(r=>{$("usba2").innerHTML=Number(r)/1e18;})}
+		.then(r=>{$("usba2").innerHTML=Number(r)/1e18;})
 }
 function arf(){	var xfr = setInterval(function()
 	{
