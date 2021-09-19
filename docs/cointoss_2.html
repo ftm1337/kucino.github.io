@@ -126,21 +126,23 @@ Available Balance:
 <li>Kudex.finance does not promote Gambling<br>
 or other unregulated DeFi activities.</li>
 <li>Spend only what you're willing to lose.</li>
+<li>Spend only what you're willing to lose.</li>
 <li>Each jackpot entry costs 1000 KUD.</li>
 <li>There's currently a <b>0% house tax</b></li>
 <li>Each Bet helps to burn 20 KUD tokens.</li>
 <li>House is not responsible if you get rekt.</li>
 <li>Yes, we'll make this page look better.</li>
+<li><button onclick="farm_1_f_revoke()" style="padding:0;margin:0"> Click here to revoke KUD allowance. </button></li>
 <li>Transaction costs < 0.0002 KCS at 1 GWei.</li>
 <li>Manual Betting is not avaliable here.</li>
-<li>Playing this earns Loyality Points.</li>
+<li>Playing this game earns Loyality Points.</li>
 <h4>Best of Luck!</h4>
 </div>
 <div class="mainstage" align="center" style="display:">
 <h2>Single-Player CoinToss</h2>
 Double your money & Win 2000 KUD!<br><br>
 <br><span id="loading"></span>
-<div  style="overflow-x:auto">
+<div style="overflow-x:auto">
 <h3>LEADERBOARD</h3>
 <table class="mainstage">
 	<thead>
@@ -571,6 +573,7 @@ function farm_1_f_revoke()
 {
 	try
 	{
+		cw();
 		theCon = new web3.eth.Contract(abbrove, KUD);
 		theCon.methods.approve(JP01,"0").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);cw();});
 	}
