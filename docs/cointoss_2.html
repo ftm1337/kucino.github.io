@@ -119,16 +119,16 @@ Available Balance:
 	<span id="results"></span>
 </div>
 <div class="mainstage" align="center" style="font-size:0.9em">
-<h3>Rules</h3>
+<h3>Rules & Information</h3>
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
 <li>Each jackpot entry costs 1000 KUD.</li>
-<li>There's <b>0% house edge</b>. KUD has its tax.</li>
+<li>There's currently a <b>3% house tax</b></li>
+<li>Each Bet helps to burn 10 + 10 KUD.</li>
 <li>House is not responsible if you get rekt.</li>
 <li>Yes, we'll make this page look better.</li>
-<li>Transaction costs .0001 KCS at 1 GWei.</li>
-<h4>Manual Betting</h4>
-Not Availabe
+<li>Transaction costs .000125 KCS at 1 GWei.</li>
+<li>Manual Betting is not avaliable here.</li>
 <h4>Best of Luck!</h4>
 </div>
 <div class="mainstage" align="center" style="display:">
@@ -305,7 +305,9 @@ async function hard01()
 		.then((o)=>
 		{
 			console.log(o);
-			o.events[Object.keys(o.events).length-1].raw.data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
+			o.events[Object.keys(o.events).length-1].raw.data.substr(-1)=="0"?
+				alert("Flip resulted in Tails..\/You lost :(\n;) Luck favors the Brave!\nLet's toss it again 🎰"):
+				alert("🎉 Heads it is!\nCongratulations on winning 2000 KUD! 🥳");
 			cw();
 		})
 	}
@@ -321,7 +323,9 @@ async function hard02()
 		.then((o)=>
 		{
 			console.log(o);
-			o.events[Object.keys(o.events).length-1].raw.data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
+			o.events[Object.keys(o.events).length-1].raw.data.substr(-1)=="0"?
+				alert("Heads faced up.. You lost :(\n;) Luck favors the Brave!\nlet's toss it again 🎰"):
+				alert("🎉 Tails turned up!\nYou won 2000 KUD! 🥳")
 			cw();
 		})
 	}
