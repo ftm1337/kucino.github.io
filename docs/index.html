@@ -87,6 +87,113 @@ div .mainstage:nth-child(4),div .mainstage:nth-child(7){padding: 0px;}
 	.maincards{grid-template-columns:33% 33% 33%;margin: auto}
 }
 
+.oc {overflow: auto}
+.container {
+  position: ;
+  height: ;
+  top: 60px;
+  left: calc(50% - 300px);
+  display: flex;
+  padding: 40px;
+  overflow:hidden;
+  color: red !important;;
+  padding:60px;
+}
+
+.card {
+  display: flex;
+  overflow: hidden;
+  height: ;
+  min-width: 200px;
+  background-color: rgba(23,20,30,.85);
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+  background: linear-gradient(to left,rgba(0,255,127,.5),rgba(1,240,255,.5));
+}
+
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 180px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0,154,217);
+  background: linear-gradient(to right,rgba(0,255,127,1),rgba(1,240,255,1));
+  transition: 0.6s ease-out;
+  border: 1px dashed black
+}
+
+.card:hover .filledbar {
+  width: 150px;
+  transition: 0.4s ease-out;
+
+}
+
+.circle {
+  position: ;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+
+.stroke {
+  stroke: rgba(0,255,127,0.24);;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+svg {
+  fill: #17141d;
+  stroke-width: 2px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+}
 </style>
 </head>
 <div align="center" class="uo"><br><br>
@@ -151,83 +258,95 @@ div .mainstage:nth-child(4),div .mainstage:nth-child(7){padding: 0px;}
 		<br><i>(Pot Limit: 777 KCS)</i></div>
 	</div></a>-->
 	<br>
-	<div class="maincards">
-		<a href="cointoss_1.html"><div class="maincard">
-			<span style="font-size:1.5em"><span class="gmul">2x</span> KCS Coin-Toss</span>
-			<hr>
-			<i>Single-Player CoinToss,<b> Double or Nothing!</b></i><br><br>
-			⇨ Classic Heads or Tails: Win 2x!<br>
-			⇨ Single-player & non-stop.<br>
-			⇨ Min. bet = o.01 KCS<br>
-			<br>
-			Stake 0.01 KCS to our Smart Contract and get back 2x.01 = .02 KCS on winning! Be careful, a coin has two sides…<br>
-			<br>
-			<div align="center">
-				<button style="font-size:1.25em">Play on KCC</button>
-			</div>
-		</div></a>
-		<a href="jackpot_1.html"><div class="maincard">
-			<span style="font-size:1.5em"><span class="gmul">2x</span> P vs P: KCS Jackpot</span>
-			<hr>
-			<i>2-player Jackpot,<b> Last man standing!</b></i><br><br>
-			⇨ Challenge your friends or battle strangers!<br>
-			⇨ 2-player game, Head-to-Head<br>
-			⇨ Min. bet = o.01 KCS<br>
-			<br>
-			Bet against a friend or a random online player, one-on-one, for a chance to beat your opponent and Double your bet!<br>
-			<br>
-			<div align="center">
-				<button style="font-size:1.25em">Play on KCC</button>
-			</div>
-		</div></a>
-		<a href="instalotto.html"><div class="maincard">
-			<span style="font-size:1.5em"><span class="gmul">∞x</span> The instaLOTTO</span>
-			<hr>
-			<i>Traditional Lotto, <b>on-demand winners!</b></i><br><br>
-			⇨ First No-Wait instant Result Lotto<br>
-			⇨ MMO Lotto, but Decentralized<br>
-			⇨ Min. bet = o.01 KCS<br>
-			<br>
-			Get tickets, one or more, and one lucky winner takes home the JackPot. Anyone can end betting & initiate winner declaration, anytime!<br>
-			<br>
-			<div align="center">
-				<button style="font-size:1.25em">Play on KCC</button>
-			</div>
-		</div></a>
-		<!--
-		<a href="https://ftm.guru/cointoss_1.html"><div class="maincard">
-			<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
-			<hr>
-			<i>Classic Heads or Tails: Win 2x!<br>
-			Single-player & non-stop.<br>
-			Min. bet = o.1 FTM</i>
-			<br><br>
-			<div align="center">
-				<button style="font-size:1.25em">Play on Opera</button>
-			</div>
-		</div></a>
-		<a href="https://ftm.guru/degam.html"><div class="maincard">
-			<span style="font-size:1.5em"><span class="gmul">3x</span> Mini Jackpot</span>
-			<hr>
-			<i>Enter Jackpot, win 4 FTM!<br>
-			Played against 2 opponents.<br>
-			Min. bet = 1.337 FTM</i>
-			<br><br>
-			<div align="center">
-				<button style="font-size:1.25em">Play on Opera</button>
-			</div>
-		</div></a>
-		<a href="https://ftm.guru/degam.html"><div class="maincard">
-			<span style="font-size:1.5em"><span class="gmul">3x</span> Micro Jackpot</span>
-			<hr>
-			<i>Enter Jackpot, win .4 FTM!<br>
-			Played against 2 opponents.<br>
-			Min. bet = o.1337 FTM</i>
-			<br><br>
-			<div align="center">
-				<button style="font-size:1.25em">Play on Opera</button>
-			</div>
-		</div></a>-->
+
+	<div class="oc">
+		<div class="container">
+  			<div class="card" onclick="window.location='jackpot_1.html'">
+    			<h3 class="title">PvP Jackpot</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">0.02 KCS</span>
+    			<br><br><br>
+    			</div>
+  			</div>
+  			<div class="card" onclick="window.location='instalotto.html'">
+    			<h3 class="title">instaLOTTO</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">∞x KCS*</span>
+    			<br><i>*No Limits</i><br><br>
+    			</div>
+  			</div>
+  			<div class="card">
+    			<h3 class="title">21-hour Lotto</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">∞x KCS*</span>
+    			<br><i>*No Limits</i><br><br>
+    			</div>
+  			</div>
+  			<div class="card" onclick="window.location='cointoss_2.html'">
+    			<h3 class="title">KCS Coin-Flip</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">0.02 KCS</span>
+    			<br><br><br>
+    			</div>
+  			</div>
+  			<div class="card" onclick="window.location='cointoss_2.html'">
+    			<h3 class="title">1000 KUD Flipper</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">1000 KUD</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">2000 KUD</span>
+    			<br><br><br>
+    			</div>
+  			</div>
+		</div>
 	</div>
 	<br>
 	<div class="mte uo" align="center">
