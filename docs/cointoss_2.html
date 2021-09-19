@@ -304,8 +304,9 @@ async function hard01()
 		kbc.methods.bet().send({from:window.ethereum.selectedAddress})
 		.then((o)=>
 		{
-			//console.log(o);
-			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳")
+			console.log(o);
+			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
+			cw();
 		})
 	}
 	catch(e){console.log(e)}
@@ -319,8 +320,9 @@ async function hard02()
 		kbc.methods.bet().send({from:window.ethereum.selectedAddress})
 		.then((o)=>
 		{
-			//console.log(o);
-			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳")
+			console.log(o);
+			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
+			cw();
 		})
 	}
 	catch(e){console.log(e)}
@@ -551,7 +553,7 @@ function farm_1_f_approve()
 	try
 	{
 		theCon = new web3.eth.Contract(abbrove, KUD);
-		theCon.methods.approve(JP01,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.approve(JP01,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);cw();});
 	}
 	catch(e){console.log(e);}
 }
@@ -561,7 +563,7 @@ function farm_1_f_revoke()
 	try
 	{
 		theCon = new web3.eth.Contract(abbrove, KUD);
-		theCon.methods.approve(JP01,"0").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.approve(JP01,"0").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);cw();});
 	}
 	catch(e){console.log(e);}
 }
