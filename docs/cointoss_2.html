@@ -287,9 +287,10 @@ async function cw()
 {
 	if(!(Number(window.ethereum.chainId)==321)){$("cw").innerHTML="Wrong network";return(0)}
 	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
-	uac = UAC[0];
+	uac = web3.utils.toChecksumAddress(UAC[0]);
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
 	web3.eth.Contract.defaultAccount=uac;
+	uac = web3.utils.toChecksumAddress(UAC[0]);
 	window.ethereum.enable();
 	gub();
 	farm_1_f_chappro();
@@ -549,7 +550,6 @@ function farm_1_f_approve()
 {
 	try
 	{
-		var conAdd = KUD;
 		theCon = new web3.eth.Contract(abbrove, KUD);
 		theCon.methods.approve(JP01,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
@@ -560,8 +560,7 @@ function farm_1_f_revoke()
 {
 	try
 	{
-		var conAdd = KUD;
-		theCon = new web3.eth.Contract(abbrove, JP02);
+		theCon = new web3.eth.Contract(abbrove, KUD);
 		theCon.methods.approve(JP01,"0").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);}
@@ -571,14 +570,13 @@ function farm_1_f_chappro()
 {
 	try
 	{
-		var conAdd = JP02;
-		theCon = new web3.eth.Contract(abbrove, conAdd);
+		theCon = new web3.eth.Contract(abbrove, KUD);
 		theCon.methods.allowance(window.ethereum.selectedAddress,JP01).call
 		(
 			{from:window.ethereum.selectedAddress},(e, r) =>
 			{
 				console.log(r);
-				if(Number(r)>0)
+				if(Number(r)>1e21-1)
 				{
 					$("farm_1_approved").value="Approved";
 					$("farm_1_approval").disabled=true;
