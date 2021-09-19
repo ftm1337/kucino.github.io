@@ -305,7 +305,7 @@ async function hard01()
 		.then((o)=>
 		{
 			console.log(o);
-			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
+			o.events[4].raw.data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
 			cw();
 		})
 	}
@@ -321,7 +321,7 @@ async function hard02()
 		.then((o)=>
 		{
 			console.log(o);
-			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
+			o.events[4].raw.data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 2000 KUD! 🥳");
 			cw();
 		})
 	}
