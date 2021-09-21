@@ -86,8 +86,23 @@ div .mainstage:nth-child(4),div .mainstage:nth-child(7){padding: 0px;}
 @media(min-width:1024px){
 	.maincards{grid-template-columns:33% 33% 33%;margin: auto}
 }
+.oc div:first-child {overflow: auto}
 
-.oc {overflow: auto}
+* {
+  scrollbar-width: thick;
+  scrollbar-color: #0f7 #174;
+}
+*::-webkit-scrollbar {
+  width: 20px;
+}
+*::-webkit-scrollbar-track {
+  background: #174;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #0f7;
+  border-radius: 20px;
+  border: 3px solid #174;
+}
 .container {
   position: ;
   height: ;
