@@ -208,7 +208,7 @@ svg {
 .two div b{font-size:1.75em}
 @media(min-width:639px){
   .container{grid-template-columns: auto  auto}
-  .two{grid-template-columns: auto  auto}
+  .two{grid-template-columns: 50% 50%}
   .two div span{font-size:25vw}
 }
 @media(min-width:899px){
@@ -217,7 +217,18 @@ svg {
 @media(min-width:1279px){
   .container{grid-template-columns: auto auto auto auto }
 }
-
+.lowerbar2{
+  font-size: 1.25em;
+  font-weight: bolder;
+}
+.lowerbar2 a{
+  font-size: 0.75em;
+  font-weight: lighter;
+  padding: 10px 10px 10px 0px;
+  color:#32fbe2;
+  text-decoration: none
+}
+.lowerbar2 img{width:24px}
 </style>
 </head>
 <div align="center" class="uo"><br><br>
@@ -234,8 +245,43 @@ svg {
 		</div>
 	</div>
 <br><br>
+<br><br><br><br><br>
+<div onclick="pantvl()">
+	<span style="font-size:2.5em;font-weight:bold" id="pantvl" class="fore"></span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
+	(Total Value Locked Pan-platform)
+</div>
+<br><br>
+<div align="center"><i>Want something more?<br><br>
+<a href="mailto:ftm1337@protonmail.com">📧</a> Let us know!</i><br>
+	<div class="lowerbar2">
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/img/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/img/telegram.svg"></a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/img/discord.svg"></a>
+	</div>
+</div>
+<br><br><br>
+<div class="lowerbar2">Powered by Guru Network.
+<br>
+	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
+	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
+	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
+	<br><br>
+	<a target="_blank" href="https://kcc.guru"><img src="https://ftm.guru/img/kcc.png"></a>
+	<a target="_blank" href="https://ftm.guru"><img src="https://ftm.guru/img/64.png"></a>
+	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/img/FMC.svg"></a>
+	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/img/medium.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/img/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/img/cmc.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/img/defillama.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/img/defillama.svg"></a>
+</div>
+
+<br><br><br><br><br>
 </div>
 <hr>
+
+
+
 
 <div class="lowerbar" align="center">
 	<div align="left" class="lowercat">
@@ -324,6 +370,37 @@ svg {
 <br>
 <div style="font-size:0.64em">For appropriate age and geographical restriction information, please consult your local jurisdiction's competent authorities. Continuing to use this site beyond this homepage reflects your explicit consent to be aware of this notice and furthermore explicitly agree to indemnify the platform in any court of law. Gambling might be addictive and cause severe financial ruin. Play responsibly and at your own risk.</div>
 <script>function $(_) {return document.getElementById(_);}
+window.addEventListener('load',async function(){pantvl()}, false);
+async function pantvl()
+{
 
+		url="https://rpc-mainnet.kcc.network"
+		data=
+		{
+			"jsonrpc":"2.0",
+			"id":9,
+			"method":"eth_call",
+			"params":
+			[
+				{
+					"data":"0xe5328e06",
+					"to":"0x426a4a4b73d4cd173c9ab78d18c0d79d1717eaa9"
+				},
+				"latest"
+			]
+		}
+		let io = (
+			await fetch(
+				url,
+				{
+					method: 'POST',
+					body: JSON.stringify(data),
+					headers: { 'Content-Type': 'application/json'}
+				}
+			)
+		).json();
+
+		Promise.all([io]).then( r => {$("pantvl").innerHTML = "$"+(Number(r[0].result)/1e18).toLocaleString();})
+}
 </script>
 </html>
