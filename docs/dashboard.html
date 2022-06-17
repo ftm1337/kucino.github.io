@@ -81,7 +81,19 @@ button:disabled {
 <br>
 <div align="center">
 <h1>Welcome to KUCINO</h1>
-<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
+<div id="connect">
+	Please connect your web3 wallet.
+	<br><br>
+	<button onclick="cw()" id="btn-connect">Connect</button>
+</div>
+	<br>
+	<span id="cw_m"></span><br>
+<div id="switch">
+	A web3 wallet is now connected.
+	<button onclick="cw()" id="btn-switch">Switch?</button>
+	<br>
+	<span id="cw"></span>
+</div>
 <br>
 <u>Available Balances</u><br>
 <span id="usba">?</span> KCS
@@ -277,7 +289,6 @@ let provider= {};
 let signer= {};
 window.addEventListener('load',async function()
 {
-	toggleBtn()
 	console.log("waitin for 3 secs..");
 	$("cw_m").innerHTML = "Connecting.. Please wait."
 	setTimeout(async () => { basetrip(); getStats(); }, 3000);
