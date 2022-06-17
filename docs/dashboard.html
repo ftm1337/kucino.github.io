@@ -535,7 +535,7 @@ DAO = "0x167D87A906dA361A10061fe42bbe89451c2EE584";
 async function cl()
 {
 	K=new ethers.Contract(KUCINO,a,provider);
-	K.claimKCSReward().send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("claim:",r);getUserStats()})
+	K.claimKCSReward().then(r=>{console.log("claim:",r);getUserStats()})
 
 }
 pa_=[
@@ -603,7 +603,7 @@ pa_=[
 ];
 function ck()
 {
-	K.claimKCSReward().send({from:window.ethereum.selectedAddress},(e,r)=>{
+	K.claimKCSReward().then(r=>{
 		console.log("claim:",r);
 		if(r!=undefined){$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcc.io/tx/${r}">Check status here.</a></b>`;}
 	})
