@@ -94,16 +94,15 @@ button:disabled {
 	<span id="cw_m"></span><br>
 <div id="switch">
 	A web3 wallet is now connected.
-	<button onclick="cw()" id="btn-switch">Switch?</button>
 	<br>
 	<span id="cw"></span>
+	<button onclick="cw()" id="btn-switch">Switch?</button>
 </div>
 <br>
-<u>Available Balances</u><br>
+<b><u>Available Balances</u></b><br><br>
 <span id="usba">?</span> KCS
 <br>
 <span id="ub">?</span> KUCINO
-<br>
 <br>
 <br>
 </div>
@@ -130,7 +129,7 @@ button:disabled {
 	</div><br>
 	<div style="font-size:1.5em">
 	<b>Time for Next Claim</b><br>
-	<span style="font-size:1.5em" id="nextclaim">?d ?h ?m ?s</span><br>
+	<span style="font-size:1.5em" id="nextclaim">?d ?h ?m ?s</span>
 	<span id="cd"></span>
 	</div>
 </div>
@@ -316,8 +315,6 @@ async function basetrip()
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
-		chkAppr(TOKEN_1)
-		arf()
 	}
 	else //if(Number(window.ethereum.chainId)==CHAINID)
 	{
@@ -603,7 +600,7 @@ pa_=[
 ];
 function ck()
 {
-	K.connect(signer)
+	K=new ethers.Contract(KUCINO,a,signer);
 	K.claimKCSReward().then(r=>{
 		console.log("claim:",r);
 		if(r!=undefined){$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcc.io/tx/${r}">Check status here.</a></b>`;}
