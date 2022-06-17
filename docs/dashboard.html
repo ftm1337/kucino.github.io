@@ -603,7 +603,7 @@ function ck()
 	K=new ethers.Contract(KUCINO,a,signer);
 	K.claimKCSReward().then(r=>{
 		console.log("claim:",r);
-		if(r!=undefined){$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcc.io/tx/${r}">Check status here.</a></b>`;}
+		if(r!=undefined){$("claimStatus").innerHTML=`Transaction Sent!<br><b><a href="https://explorer.kcc.io/tx/${r.hash}">Check status here.</a></b>`;}
 	})
 }
 </script>
