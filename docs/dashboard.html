@@ -57,6 +57,10 @@ button:disabled {
 	.hhr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 }
+#cw_m{color: #f23;font-weight: bold;text-shadow: 1px 1px 5px rgba(255,127,127,0.5)}
+#switch {
+  display:none;border:none
+}
 </style>
 </head>
 <div align="center" class="uo"><br><br>
@@ -328,7 +332,7 @@ async function basetrip()
 		window.ethereum.request({
     	method: "wallet_addEthereumChain",
     	params: [{
-        	chainId: "321",
+        	chainId: "0x141",
         	rpcUrls: [RPC_URL],
         	chainName: "KCC Mainnet",
         	nativeCurrency: {
@@ -473,7 +477,7 @@ a=[{"inputs":[{"internalType":"address payable","name":"routerAddress","type":"a
 ;
 async function getStats()
 {
-	K=new ethers.Contractr(KUCINO,a,provider);
+	K=new ethers.Contract(KUCINO,a,provider);
 	//getGlobalStats()
 	web3.eth.getBalance(KUCINO).then(b=>{b=Number(b);$("kcspool").innerHTML=(b/1e18).toFixed(8);$("d_kp").innerHTML=(b/1e18).toFixed(6);})
 	web3.eth.getBalance(DAO).then(b=>{b=Number(b);$("h_k").innerHTML=(b/1e18).toLocaleString()})
